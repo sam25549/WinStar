@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <h1>Inspiración</h1>
+    <div class="inspiration-grid">
+        <article class="inspiration-card">
+            <h2>Diseño Centrado en el Usuario</h2>
+            <p>Exploramos cómo el diseño centrado en el usuario puede transformar la experiencia digital y crear productos más efectivos y agradables.</p>
+            <a href="#" class="read-more">Leer más</a>
+        </article>
+
+        <article class="inspiration-card">
+            <h2>Innovación Tecnológica</h2>
+            <p>Descubre las últimas tendencias en tecnología y cómo están moldeando el futuro del desarrollo web y móvil.</p>
+            <a href="#" class="read-more">Leer más</a>
+        </article>
+
+        <article class="inspiration-card">
+            <h2>Casos de Éxito</h2>
+            <p>Historias inspiradoras de proyectos que han marcado la diferencia en la industria tecnológica.</p>
+            <a href="#" class="read-more">Leer más</a>
+        </article>
+    </div>
+</Layout>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+    }
+
+    .inspiration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .inspiration-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .inspiration-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .inspiration-card h2 {
+        color: #007bff;
+        margin-bottom: 1rem;
+    }
+
+    .inspiration-card p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .read-more {
+        display: inline-block;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+</style> 
