@@ -1,12 +1,45 @@
 ---
-import global from '../styles/global.css';
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import global from "../styles/global.css";
+import AnimatedTitle from "../components/AnimatedTitle.astro";
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<h1>Hello World</h1>
+<Layout title="Inicio" description="Bienvenido a WinStar">
+	<AnimatedTitle text="Samantha" class="logo" />
+
+	<button id="explore-btn">Explore Portfolio</button>
+
+	<!-- INTRO SECTION -->
+	<section class="intro" id="intro">
+		<div class="intro-text">
+			<p>
+				WinStar isn't a company. It's an alter ego — an experimental
+				universe where creativity collides with technology, art, and
+				emotion.
+			</p>
+			<p>
+				From short films to robots, from hand-drawn sketches to digital
+				realities: WinStar transforms ideas into experiences.
+			</p>
+			<p>Excited for this journey? Come join us!</p>
+		</div>
+		<div class="intro-images">
+			<img src="/src/img/logo.png" alt="logo" class="hover-img" />
+			<img src="/src/img/logo.png" alt="logo" class="hover-img" />
+		</div>
+	</section>
+
+	<!-- SERVICES SECTION -->
+	<section id="services">
+		<h2>Creative Services</h2>
+		<ul class="service-list">
+			<li><h3>FILM PRODUCTION</h3></li>
+			<li><h3>ROBOTICS / INTERACTIVE DESIGN</h3></li>
+			<li><h3>HYBRID MEDIA</h3></li>
+		</ul>
+		<a class="projects-btn" href="/src/html/projects.html">View Projects</a>
+	</section>
 </Layout>
