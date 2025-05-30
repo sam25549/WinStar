@@ -1,1 +1,249 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Syne&display=swap');
+
+:root {
+  --font-family-header: 'Bowlby One', cursive;
+  --font-family-body: 'Syne', sans-serif;
+  
+  /* Paleta de colores */
+  --color-background: #0b0e14;
+  --color-background-alt: #0f2027;
+  --color-pop: #d90368;
+  --color-pop-hover: #920044;
+  --color-primary: #2196f3;
+  --color-primary-hover: #215df3;
+  --color-primary-osc: #1f2a44;
+  --color-primary-osc-hover: #0d1d42;
+  --color-text: #e0f0ff;
+  --color-text-muted: #c8e0f7;
+}   
+
+/* GENERAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-body), sans-serif;
+}
+
+html, body {
+  height: 100%;
+  /*
+*/
+  background-color: var(--color-background);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+
+/* LOADER */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-primary-osc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--color-text);
+  border-top: 6px solid var(--color-pop);
+  border-radius: 50%;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* NAVBAR */
+#main-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 1rem 2rem;
+  background-color: var(--color-primary-osc);
+  z-index: 1000;
+}
+
+#nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+#nav-list a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+#nav-list a:hover {
+  color: var(--color-pop);
+}
+
+/* INTRO SECTION */
+.intro {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.intro-text {
+  flex: 1 1 40ch;
+  max-width: 400px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  font-family: var(--font-family-body);
+}
+
+.intro-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hover-img {
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.hover-img:hover {
+  transform: scale(1.1);
+}
+
+/* SERVICES */
+#services {
+  padding: 4rem 2rem;
+  background-color: var(--color-primary-osc);
+  text-align: center;
+  position: relative;
+}
+
+#services h2 {
+  font-family: var(--font-family-body);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transform: rotate(-3deg);
+}
+
+.service-list li h3 {
+  font-family: var(--font-family-body);
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+.projects-btn {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  font-family: var(--font-family-body);
+  font-weight: bold;
+  background-color: var(--color-pop);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.projects-btn:hover {
+  background-color: var(--color-pop-hover);
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(-45deg, var(--color-primary-osc), var(--color-primary-osc-hover), var(--color-primary));
+  background-size: 600% 600%;
+  animation: gradientBG 15s ease infinite;
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+footer h2 {
+  font-family: var(--font-family-header);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-phrase {
+  font-family: var(--font-family-body);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-family-body);
+  font-weight: bold;
+}
+
+.footer-nav a:hover {
+  color: var(--color-pop);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    align-items: center;
+  }
+  .intro-images {
+    flex-direction: row;
+  }
+  .service-list {
+    transform: none;
+  }
+}
+
+.name {
+  color: var(--color-text);
+  position: absolute;
+  font-size: 12rem;
+}

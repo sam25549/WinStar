@@ -7,14 +7,16 @@ interface Props {
 const { text, class: className = '' } = Astro.props;
 ---
 
-<h1 class={`animated-title text-8xl md:text-10xl lg:text-13xl text-center mx-auto font-bold ${className}`}>
-    {text.split('').map((char, index) => (
-        <div class="char-container" data-char={char}>
-            <span class="char char-1">{char}</span>
-            <span class="char char-2">{char}</span>
-        </div>
-    ))}
-</h1>
+<div class="w-full flex justify-center items-center">
+    <h1 class={`animated-title text-8xl md:text-10xl lg:text-13xl font-bold w-[90%] ${className}`}>
+        {text.split('').map((char, index) => (
+            <div class="char-container" data-char={char}>
+                <span class="char char-1">{char}</span>
+                <span class="char char-2">{char}</span>
+            </div>
+        ))}
+    </h1>
+</div>
 
 <script>
     import { gsap } from 'gsap';
@@ -98,6 +100,8 @@ const { text, class: className = '' } = Astro.props;
     .animated-title {
         display: inline-block;
         overflow: hidden;
+        text-align: center;
+        width: 100%;
     }
 
     .char-container {

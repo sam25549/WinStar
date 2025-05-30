@@ -8,7 +8,13 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Inicio" description="Bienvenido a WinStar">
-	<AnimatedTitle text="Samantha" class="logo" />
+	<div class="logo-container">
+		<div class="name-container">
+			<AnimatedTitle text="SAMANTHA" class="name" />
+			<img src="/src/assets/WinStarLogoWeb.png" alt="logo" class="logo" />
+		</div>
+	</div>
+	
 
 	<button id="explore-btn">Explore Portfolio</button>
 
@@ -43,3 +49,79 @@ import Layout from "../layouts/Layout.astro";
 		<a class="projects-btn" href="/src/html/projects.html">View Projects</a>
 	</section>
 </Layout>
+
+<style>
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
+	}
+
+	.logo-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 60vh;
+		width: 100vw;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		left: 0;
+		right: 0;
+		background: linear-gradient(-45deg, var(--color-background), var(--color-primary-hover), var(--color-primary));
+		background-size: 400% 400%;
+		animation: gradientBG 5s ease infinite;
+		color: white;
+		scroll-behavior: smooth;
+	}
+
+	.name-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		position: relative;
+		margin: 0;
+		padding: 0;
+	}
+
+	@keyframes gradientBG {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	.logo {
+		position: absolute;
+		align-self: center;
+		width: 60%;
+		max-width: 800px;
+		height: auto;
+		object-fit: cover;
+	}
+
+	.name {
+		position: relative;
+		z-index: 2;
+		color: white;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		font-size: clamp(2rem, 5vw, 4rem);
+	}
+
+	:global(.char) {
+		color: white !important;
+	}
+
+	@media (max-width: 768px) {
+		.logo {
+			width: 80%;
+		}
+	}
+</style>
