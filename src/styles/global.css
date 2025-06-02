@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Syne&display=swap');
 
 :root {
@@ -146,6 +149,7 @@ html, body {
   background-color: var(--color-primary-osc);
   text-align: center;
   position: relative;
+  width: 100%;
 }
 
 #services h2 {
@@ -153,14 +157,22 @@ html, body {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
+  border: 2px solid var(--color-pop);
+  padding: 1rem;
+  display: inline-block;
 }
 
 .service-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  transform: rotate(-3deg);
+  gap: 0;
+  transform: none;
+}
+
+.service-list li {
+  border-bottom: 1px solid var(--color-pop);
+  padding: 1rem 0;
 }
 
 .service-list li h3 {
@@ -247,3 +259,23 @@ footer h2 {
   position: absolute;
   font-size: 12rem;
 }
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  background: linear-gradient(-45deg, var(--color-background), var(--color-primary-hover), var(--color-primary));
+  background-size: 400% 400%;
+  animation: gradientBG 5s ease infinite;
+  color: white;
+  scroll-behavior: smooth;
+}
+

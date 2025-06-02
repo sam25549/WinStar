@@ -3,11 +3,20 @@ import global from "../styles/global.css";
 import AnimatedTitle from "../components/AnimatedTitle.astro";
 import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "WinStar - Inicio";
+const description = "WinStar - Un universo experimental donde la creatividad se encuentra con la tecnología, el arte y la emoción. Transformamos ideas en experiencias únicas.";
+const image = "/src/assets/WinStarLogoWeb.png";
+const keywords = "WinStar, creatividad, tecnología, arte, diseño, producción audiovisual, robótica, medios híbridos";
+const author = "Samantha";
 ---
 
-<Layout title="Inicio" description="Bienvenido a WinStar">
+<Layout 
+	title={title}
+	description={description}
+	image={image}
+	keywords={keywords}
+	author={author}
+>
 	<div class="logo-container">
 		<div class="name-container">
 			<AnimatedTitle text="SAMANTHA" class="name" />
@@ -17,6 +26,20 @@ import Layout from "../layouts/Layout.astro";
 	
 
 	<button id="explore-btn">Explore Portfolio</button>
+
+	<script>
+		const exploreBtn = document.getElementById('explore-btn');
+		const introSection = document.getElementById('intro');
+
+		if (exploreBtn && introSection) {
+			exploreBtn.addEventListener('click', () => {
+				introSection.scrollIntoView({ 
+					behavior: 'smooth',
+					block: 'start'
+				});
+			});
+		}
+	</script>
 
 	<!-- INTRO SECTION -->
 	<section class="intro" id="intro">
@@ -49,7 +72,6 @@ import Layout from "../layouts/Layout.astro";
 		<a class="projects-btn" href="/src/html/projects.html">View Projects</a>
 	</section>
 </Layout>
-
 <style>
 	:global(body) {
 		margin: 0;
@@ -62,18 +84,15 @@ import Layout from "../layouts/Layout.astro";
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: 60vh;
+		height: 100vh;
 		width: 100vw;
 		margin: 0;
 		padding: 0;
 		position: relative;
 		left: 0;
 		right: 0;
-		background: linear-gradient(-45deg, var(--color-background), var(--color-primary-hover), var(--color-primary));
-		background-size: 400% 400%;
-		animation: gradientBG 5s ease infinite;
+		background-color: var(--color-background);
 		color: white;
-		scroll-behavior: smooth;
 	}
 
 	.name-container {
@@ -84,18 +103,6 @@ import Layout from "../layouts/Layout.astro";
 		position: relative;
 		margin: 0;
 		padding: 0;
-	}
-
-	@keyframes gradientBG {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
 	}
 
 	.logo {
@@ -124,4 +131,30 @@ import Layout from "../layouts/Layout.astro";
 			width: 80%;
 		}
 	}
+
+	
+#explore-btn {
+  margin: 2rem auto 0;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-family: var(--font-family-body);
+  font-weight: bold;
+  background-color: var(--color-pop);
+  color: var(--color-text);
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+#explore-btn:hover {
+  background-color: var(--color-pop-hover);
+}
 </style>
+

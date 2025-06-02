@@ -1,10 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const title = "WinStar - Portafolio de Proyectos";
+const description = "Descubre nuestra colección de proyectos innovadores en desarrollo web, aplicaciones móviles y soluciones tecnológicas empresariales. Cada proyecto refleja nuestro compromiso con la excelencia y la innovación.";
+const image = "/src/assets/WinStarLogoWeb.png";
+const keywords = "WinStar, proyectos, portafolio, desarrollo web, aplicaciones móviles, e-commerce, gestión, analytics, React, Flutter, Vue.js";
+const author = "Samantha";
 ---
 
 <Layout 
-    title="WinStar - Proyectos" 
-    description="Explora nuestro portafolio de proyectos innovadores en desarrollo web, aplicaciones móviles y soluciones tecnológicas empresariales."
+    title={title}
+    description={description}
+    image={image}
+    keywords={keywords}
+    author={author}
 >
     <h1>Nuestros Proyectos</h1>
     <div class="projects-grid">

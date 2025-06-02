@@ -6,20 +6,47 @@ import Footer from '../components/Footer.astro'
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
+	keywords?: string;
+	author?: string;
 }
 
-const { title = "WinStar", description = "WinStar - Soluciones Tecnológicas Innovadoras" } = Astro.props;
+const { 
+	title = "WinStar", 
+	description = "WinStar - Soluciones Tecnológicas Innovadoras",
+	image = "/images/og-image.jpg",
+	keywords = "tecnología, soluciones, innovación, desarrollo, software",
+	author = "WinStar Team"
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Metadatos básicos -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content={author} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={image} />
+		<meta property="og:url" content={Astro.url} />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={image} />
+		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	</head>
 	<body>

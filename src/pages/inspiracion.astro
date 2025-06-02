@@ -1,10 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const title = "WinStar - Fuentes de Inspiración";
+const description = "Explora las tendencias tecnológicas, el diseño centrado en el usuario y los casos de éxito que inspiran nuestra innovación constante en WinStar.";
+const image = "/src/assets/WinStarLogoWeb.png";
+const keywords = "WinStar, inspiración, diseño UX, innovación tecnológica, tendencias, casos de éxito, desarrollo web, experiencia de usuario";
+const author = "Samantha";
 ---
 
 <Layout 
-    title="WinStar - Inspiración" 
-    description="Descubre las últimas tendencias en tecnología, diseño centrado en el usuario y casos de éxito que inspiran nuestra innovación."
+    title={title}
+    description={description}
+    image={image}
+    keywords={keywords}
+    author={author}
 >
     <h1>Inspiración</h1>
     <div class="inspiration-grid">

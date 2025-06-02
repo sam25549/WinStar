@@ -8,7 +8,7 @@ const { text, class: className = '' } = Astro.props;
 ---
 
 <div class="w-full flex justify-center items-center">
-    <h1 class={`animated-title text-8xl md:text-10xl lg:text-13xl font-bold w-[90%] ${className}`}>
+    <h1 class={`animated-title ${className}`}>
         {text.split('').map((char, index) => (
             <div class="char-container" data-char={char}>
                 <span class="char char-1">{char}</span>
@@ -102,6 +102,38 @@ const { text, class: className = '' } = Astro.props;
         overflow: hidden;
         text-align: center;
         width: 100%;
+        font-size: 2.25rem; /* 36px - base size */
+        font-weight: bold;
+    }
+
+    @media (min-width: 640px) {
+        .animated-title {
+            font-size: 3rem; /* 48px */
+        }
+    }
+
+    @media (min-width: 768px) {
+        .animated-title {
+            font-size: 4.5rem; /* 72px */
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .animated-title {
+            font-size: 6rem; /* 96px */
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .animated-title {
+            font-size: 7.5rem; /* 120px */
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .animated-title {
+            font-size: 9rem; /* 144px */
+        }
     }
 
     .char-container {

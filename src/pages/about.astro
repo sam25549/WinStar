@@ -1,10 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const title = "Sobre WinStar - Nuestra Historia y Misión";
+const description = "Conoce la historia de WinStar, nuestra misión de innovación tecnológica y el equipo de profesionales apasionados que hacen posible nuestras soluciones.";
+const image = "/src/assets/WinStarLogoWeb.png";
+const keywords = "WinStar, historia, misión, equipo, innovación tecnológica, soluciones tecnológicas, profesionales";
+const author = "Samantha";
 ---
 
 <Layout 
-    title="Sobre Nosotros" 
-    description="Conoce más sobre WinStar, nuestra historia, misión y el equipo detrás de nuestras soluciones tecnológicas innovadoras."
+    title={title}
+    description={description}
+    image={image}
+    keywords={keywords}
+    author={author}
 >
     <h1>Sobre Nosotros</h1>
     <div class="about-content">
