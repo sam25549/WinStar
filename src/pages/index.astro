@@ -65,19 +65,50 @@ const author = "Samantha";
 	<section id="services">
 		<h2>Creative Services</h2>
 		<ul class="service-list">
-			<li><h3>FILM PRODUCTION</h3></li>
-			<li><h3>ROBOTICS / INTERACTIVE DESIGN</h3></li>
-			<li><h3>HYBRID MEDIA</h3></li>
+			<li>
+				<div class="relative inline-block group">
+					<h3 class="bitmap-text">FILM PRODUCTION</h3>
+					{["/src/img/pixel1.png", "/src/img/pixel2.png", "/src/img/pixel3.png"].map((src, i) => (
+						<img
+							src={src}
+							alt={`pixel-${i}`}
+							class={`bitmap-img absolute w-10 md:w-12 transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
+							style={`top: ${Math.random() * 60 - 30}px; left: ${Math.random() * 200 - 100}px; z-index: 5;`}
+						/>
+					))}
+				</div>
+			</li>
+			<li>
+				<div class="relative inline-block group">
+					<h3 class="bitmap-text">ROBOTICS / INTERACTIVE DESIGN</h3>
+					{["/src/img/pixel1.png", "/src/img/pixel2.png", "/src/img/pixel3.png"].map((src, i) => (
+						<img
+							src={src}
+							alt={`pixel-${i}`}
+							class={`bitmap-img absolute w-10 md:w-12 transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
+							style={`top: ${Math.random() * 60 - 30}px; left: ${Math.random() * 200 - 100}px; z-index: 5;`}
+						/>
+					))}
+				</div>
+			</li>
+			<li>
+				<div class="relative inline-block group">
+					<h3 class="bitmap-text">HYBRID MEDIA</h3>
+					{["/src/img/pixel1.png", "/src/img/pixel2.png", "/src/img/pixel3.png"].map((src, i) => (
+						<img
+							src={src}
+							alt={`pixel-${i}`}
+							class={`bitmap-img absolute w-10 md:w-12 transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
+							style={`top: ${Math.random() * 60 - 30}px; left: ${Math.random() * 200 - 100}px; z-index: 5;`}
+						/>
+					))}
+				</div>
+			</li>
 		</ul>
-		<a class="projects-btn" href="/src/html/projects.html">View Projects</a>
+		<a class="projects-btn" href="/proyectos">View Projects</a>
 	</section>
 </Layout>
 <style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-		overflow-x: hidden;
-	}
 
 	.logo-container {
 		display: flex;
@@ -85,7 +116,7 @@ const author = "Samantha";
 		align-items: center;
 		justify-content: center;
 		height: 100vh;
-		width: 100vw;
+		width: 100%;
 		margin: 0;
 		padding: 0;
 		position: relative;
@@ -155,6 +186,23 @@ const author = "Samantha";
 
 #explore-btn:hover {
   background-color: var(--color-pop-hover);
+}
+
+.bitmap-text {
+	color: var(--color-text);
+	text-shadow: 2px 2px var(--color-primary-hover);
+	image-rendering: pixelated;
+	transition: color 0.3s ease;
+}
+
+.group:hover .bitmap-text {
+	color: var(--color-primary-hover);
+}
+
+.bitmap-img {
+	pointer-events: none;
+	filter: drop-shadow(1px 1px var(--color-primary-hover));
+	image-rendering: pixelated;
 }
 </style>
 
