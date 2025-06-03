@@ -18,7 +18,7 @@
   --color-primary-rgb: 33, 150, 243;
   --color-primary-hover: #215df3;
   --color-primary-hover-rgb: 33, 93, 243;
-  --color-primary-osc: #1f2a44;
+  --color-primary-osc: #06122e;
   --color-primary-osc-hover: #0d1d42;
   --color-text: #e0f0ff;
   --color-text-muted: #c8e0f7;
@@ -258,8 +258,10 @@ footer h2 {
 
 .name {
   color: var(--color-text);
-  position: absolute;
+  position: relative;
   font-size: 12rem;
+  text-align: center;
+  width: 100%;
 }
 
 .logo-container {
@@ -267,13 +269,11 @@ footer h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   margin: 0;
   padding: 0;
   position: relative;
-  left: 0;
-  right: 0;
   background: linear-gradient(-45deg, var(--color-background), var(--color-primary-hover), var(--color-primary));
   background-size: 400% 400%;
   animation: gradientBG 5s ease infinite;

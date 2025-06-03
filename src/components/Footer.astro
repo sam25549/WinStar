@@ -5,33 +5,27 @@
     <div class="footer-top-line"></div>
     <div class="footer-content">
         <div class="footer-section">
-            <h3>Sobre Nosotros</h3>
-            <p>Somos una empresa dedicada a la innovación y el desarrollo de soluciones tecnológicas de vanguardia.</p>
-        </div>
-        
-        <div class="footer-section">
             <h3>Contacto</h3>
             <p>Email: info@winstar.com</p>
-            <p>Teléfono: +123 456 7890</p>
         </div>
         
         <div class="footer-section">
             <h3>Síguenos</h3>
             <div class="social-links">
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-twitter"></i> Twitter
+                <a href="https://www.behance.net/samantharellan4" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-behance"></i> Behance
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i> LinkedIn
+                <a href="https://github.com/sam25549" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i> GitHub
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i> Instagram
+                <a href="https://www.instagram.com/sam.acruz/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i> Instagram
                 </a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2024 WinStar. Todos los derechos reservados.</p>
+        <p>&copy; 2025 WinStar. Todos los derechos reservados.</p>
     </div>
 </footer>
 
@@ -61,7 +55,7 @@
     .footer-banner h2 {
         font-family: var(--font-family-header);
         font-size: 3rem; /* Adjust size as needed */
-        color: var(--color-pop); /* Use the pop color for contrast */
+        color: var(--color-pop); /* Use the pop color for c ontrast */
         animation: pulse-color 2s infinite ease-in-out;
     }
 
@@ -75,9 +69,14 @@
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        padding-bottom: 2rem; /* Add padding at the bottom of content */
+        padding-bottom: 2rem;
+        justify-content: center;
+    }
+
+    .footer-section {
+        text-align: center;
     }
 
     .footer-section h3 {
@@ -95,6 +94,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        align-items: center;
     }
 
     .social-links a {

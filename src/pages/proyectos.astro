@@ -1,8 +1,8 @@
 ---
 import global from "../styles/global.css";
-import global from "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
 import VideoCarousel from '../components/VideoCarousel.astro';
+import AnimationCarousel from '../components/AnimationCarousel.astro';
 
 const title = "WinStar - Portafolio de Proyectos";
 const description = "Descubre nuestra colección de proyectos innovadores en desarrollo web, aplicaciones móviles y soluciones tecnológicas empresariales. Cada proyecto refleja nuestro compromiso con la excelencia y la innovación.";
@@ -17,22 +17,45 @@ const videos = [
     },
     {
         title: "FINAL_segunda entrega",
-        src: "/src/assets/FINAL_segunda entrega MaidFilm.mp4"
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748964647/Maidfilm_mmv2bn.mp4"
     },
     {
         title: "Sealed Move",
-        src: "/src/assets/Sealed Move FINAL tercera entrega.mp4"
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748963863/Sealed_Move_xjtith.mp4"
+    }
+];
+
+const animationVideos = [
+    {
+        title: "Animación 1",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973273/GlitchFinal02Autorretrato_SamanthaArellano_2_atosl8.mp4"
+    },
+    {
+        title: "Animación 2",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973429/Lampara_Mascaras_SamanthaArellano_Animacion_jj2jcd.mp4"
+    },
+    {
+        title: "Animación 3",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973482/FINAL01CollageCamara_Version02_8M_Animacion_jbhtrr.mp4"
+    },
+    {
+        title: "Animación 4",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973543/02Rotoscopia_nl4wyi.mp4"
+    },
+    {
+        title: "Animación 5",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973058/ProyectoFinal_Final02_TriptoWinaStar_SamanthaArellano_xxwnk2.mp4"
     }
 ];
 
 const galleryImages = [
     "/src/assets/Actividad5_MarcaPersonalBanner_SamanthaArellano.jpg",
-    "/src/assets/animacionSurrealismo_SamanthaArellano.mp4",
+    "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748962803/animacionSurrealismo_SamanthaArellano_blhf3a.mp4",
     "/src/assets/ArtNuvou_SamanthaArellano_Version2.pdf",
     "/src/assets/Hanging Wall Sign MockUp Son y Tierra Logo.jpg",
-    "/src/assets/ObsolecenciaProgramada_Animacion.mp4",
+    "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748962815/ObsolecenciaProgramada_Animacion_wiee7t.mp4",
     "/src/assets/Op_Art_SamanthaArellano.png",
-    "/src/assets/PosterFestival_SamanthaArellano02.pdf",
+    "/src/assets/PosterFestival_SamanthaArellano02.jpg",
     "/src/assets/SamanthaArellano_Collage.jpg",
     "/src/assets/SamanthaArellano_Movimiento.gif",
     "/src/assets/SamanthaArellano_Retoque.jpg"
@@ -46,25 +69,25 @@ const projects = [
         tags: ["Abscence of Fire", "Maid Film", "Sealed Move"],
         linkText: "View Projects",
         linkHref: "#",
-        previewVideo: "/src/assets/Marianne&Final_ MaidFilm.mp4"
+        previewVideo: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748964702/Marianne_Final_Maidfilm_xt3bfk.mp4"
     },
     {
         id: 2,
         title: "Mixed Media",
         description: "Mixed Media project of Design and New Media.",
-        image: "/src/assets/ComposicionAbstracta_SamanthaArellano.pdf",
+        image: "/src/assets/Composi.jpg",
         tags: ["Animations", "Illustrations", "MokUps"],
         linkText: "View Project",
         linkHref: "#"
     },
     {
         id: 3,
-        title: "Dashboard Analytics",
-        description: "Panel de control interactivo para visualización y análisis de datos empresariales.",
-        image: "https://via.placeholder.com/600x400",
-        tags: ["Vue.js", "D3.js", "Python"],
-        linkText: "Ver Proyecto",
-        linkHref: "#"
+        title: "Animations",
+        description: "2D Animations",
+        tags: ["2D", "Animation", "Motion Graphics"],
+        linkText: "View Animations",
+        linkHref: "#",
+        animationVideos: animationVideos
     },
     {
         id: 4,
@@ -129,6 +152,12 @@ const projects = [
                         </div>
                     </>
                 )}
+                {index === 2 && project.animationVideos && (
+                    <>
+                        <button class="project-link" onclick="window.openAnimationCarousel()">{project.linkText}</button>
+                        <AnimationCarousel videos={project.animationVideos} />
+                    </>
+                )}
             </div>
             {index === 0 && project.previewVideo ? (
                 <div class="project-preview">
@@ -156,25 +185,6 @@ const projects = [
 </Layout>
 
 <style>
-    .logo-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        left: 0;
-        right: 0;
-        background: linear-gradient(45deg, 
-            rgba(var(--color-text-muted-rgb), 0.6), 
-            rgba(var(--color-primary-hover-rgb), 0.6), 
-            rgba(var(--color-primary-rgb), 0.6));
-        background-size: 400% 400%;
-        animation: gradientBG 8s ease infinite;
-        color: white;
     .logo-container {
         display: flex;
         flex-direction: column;
@@ -265,12 +275,15 @@ const projects = [
         padding: 1rem;
         min-width: 300px;
         max-width: 600px;
+        overflow: hidden;
     }
 
     .project-image img {
         max-width: 100%;
         height: auto;
         border-radius: 4px;
+        object-fit: cover;
+        width: 100%;
     }
 
     .project-image iframe {
@@ -281,35 +294,6 @@ const projects = [
         height: 400px;
         pointer-events: none;
         overflow: hidden;
-    }
-
-    .left-aligned .project-content {
-        order: 1;
-    }
-
-    .left-aligned .project-image {
-        order: 2;
-    }
-
-    .right-aligned .project-content {
-        order: 2;
-    }
-
-    .right-aligned .project-image {
-        order: 1;
-    }
-
-    .project-image {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .project-image img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 4px;
     }
 
     .left-aligned .project-content {
@@ -528,6 +512,57 @@ const projects = [
             height: 250px;
         }
     }
+
+    .animation-carousel-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+        overflow-y: auto;
+    }
+
+    .animation-carousel-container.active {
+        display: grid;
+    }
+
+    .animation-item {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        background: #000;
+    }
+
+    .animation-item:hover {
+        transform: scale(1.05);
+    }
+
+    .animation-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+        .animation-carousel-container {
+            grid-template-columns: 1fr;
+            padding: 1rem;
+        }
+
+        .animation-item {
+            height: 250px;
+        }
+    }
 </style>
 
 <script>
@@ -559,4 +594,13 @@ const projects = [
             document.body.style.overflow = '';
         }
     });
+
+    // Función para abrir el carrusel de animaciones
+    (window as any).openAnimationCarousel = () => {
+        const carousel = document.querySelector('.animation-carousel-container');
+        if (carousel) {
+            carousel.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
 </script> 
