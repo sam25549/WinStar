@@ -1,4 +1,5 @@
 ---
+import global from "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
 
 const title = "Sobre WinStar - Nuestra Historia y Misión";
@@ -15,26 +16,172 @@ const author = "Samantha";
     keywords={keywords}
     author={author}
 >
-    <h1>Sobre Nosotros</h1>
-    <div class="about-content">
-        <section class="about-section">
-            <h2>Nuestra Historia</h2>
-            <p>WinStar nació de la pasión por la innovación y el deseo de crear soluciones tecnológicas que marquen la diferencia. Desde nuestros inicios, nos hemos comprometido a ofrecer productos y servicios de la más alta calidad.</p>
-        </section>
+    <div class="about-header">
+        <h1 class="stroke-text">ABOUT.</h1>
+    </div>
 
-        <section class="about-section">
-            <h2>Nuestra Misión</h2>
-            <p>Buscamos transformar la industria tecnológica a través de soluciones innovadoras y sostenibles, siempre poniendo al cliente en el centro de todo lo que hacemos.</p>
-        </section>
+    <div class="slider-container">
+        <div class="slider">
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+        </div>
+    </div>
 
-        <section class="about-section">
-            <h2>Nuestro Equipo</h2>
-            <p>Contamos con un equipo de profesionales altamente calificados y apasionados por la tecnología, comprometidos con la excelencia y la innovación constante.</p>
-        </section>
+
+    <div class="profile-section">
+        <div class="profile-image-container">
+            <!-- Aquí irá la imagen de perfil -->
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <div class="slider">
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+        </div>
+    </div>
+    
+    <div class="bento-grid-container">
+        <div class="grid-item history-block">
+            <section class="about-section">
+                <h2>Nuestra Historia</h2>
+                <p>WinStar nació de la pasión por la innovación y el deseo de crear soluciones tecnológicas que marquen la diferencia. Desde nuestros inicios, nos hemos comprometido a ofrecer productos y servicios de la más alta calidad.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Nuestra Misión</h2>
+                <p>Buscamos transformar la industria tecnológica a través de soluciones innovadoras y sostenibles, siempre poniendo al cliente en el centro de todo lo que hacemos.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Nuestro Equipo</h2>
+                <p>Contamos con un equipo de profesionales altamente calificados y apasionados por la tecnología, comprometidos con la excelencia y la innovación constante.</p>
+            </section>
+        </div>
+
+        <div class="grid-item horizontal-video-block">
+            <!-- Aquí irá el video en horizontal -->
+            Video en horizontal
+        </div>
+
+        <div class="grid-item avatar-block">
+             <div class="profile-image-container">
+                 <!-- Aquí irá la imagen completa de avatar -->
+             </div>
+             imagen completa de
+             avatar
+        </div>
+
+        <div class="grid-item car-animation-block">
+            ANIMACION DEL CARRO CON WINSTAR
+        </div>
+
+         <div class="grid-item icons-block-1">
+             ICONS
+         </div>
+
+         <div class="grid-item icons-block-2">
+             ICONS DE HERRAMIENTAS QUE SÉ
+         </div>
+
+         <div class="grid-item empty-block">
+             <!-- Espacio vacío -->
+             VACIO
+         </div>
+
+         <div class="grid-item gradient-logo-animation-block">
+             Logo animacion en
+             gradiante
+         </div>
+
     </div>
 </Layout>
 
 <style>
+    .about-header {
+        text-align: center;
+        margin: 4rem 0;
+        position: relative;
+        z-index: 1;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .stroke-text {
+        font-size: 6rem;
+        font-weight: 900;
+        -webkit-text-stroke: 3px var(--color-text);
+        color: transparent;
+        margin: 0;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-family: var(--font-family-header);
+    }
+
+    .slider-container {
+        width: 100%;
+        overflow: hidden;
+        background: transparent;
+        padding: 2rem 0;
+        margin: 8rem 0;
+        position: relative;
+    }
+
+    .slider {
+        display: flex;
+        animation: slide 15s linear infinite;
+        white-space: nowrap;
+        width: max-content;
+    }
+
+    .stroke-text-small {
+        font-size: 2rem;
+        font-weight: 900;
+        -webkit-text-stroke: 2px var(--color-text-muted);
+        color: transparent;
+        margin: 0 3rem;
+        letter-spacing: 0.1em;
+        text-transform: lowercase;
+        font-family: var(--font-family-header);
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .profile-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .profile-image-container {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: none;
+        overflow: hidden;
+    }
+
     h1 {
         text-align: center;
         margin-bottom: 2rem;
@@ -47,7 +194,7 @@ const author = "Samantha";
     }
 
     .about-section {
-        background: #f8f9fa;
+        background: none;
         padding: 2rem;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -62,4 +209,175 @@ const author = "Samantha";
         line-height: 1.6;
         color: #555;
     }
+
+    .bento-grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(7, auto);
+        gap: 20px;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .grid-item {
+        background-color: var(--color-primary-osc);
+        padding: 1.5rem;
+        border-radius: 10px;
+        color: var(--color-text);
+        overflow: hidden;
+        min-height: 150px; /* Ajustar altura mínima general */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Definir áreas del grid basadas en las nuevas coordenadas 5x7 */
+    .icons-block-1 {
+        grid-column: 3 / 6; /* Desde columna 3 hasta 5 */
+        grid-row: 1 / 2; /* En fila 1 */
+    }
+
+    .history-block {
+        grid-column: 1 / 4; /* Desde columna 1 hasta 3 */
+        grid-row: 2 / 5; /* Desde fila 2 hasta 4 */
+    }
+
+    .car-animation-block {
+        grid-column: 4 / 6; /* Desde columna 4 hasta 5 */
+        grid-row: 2 / 5; /* Desde fila 2 hasta 4 */
+        background-color: #000;
+        color: white;
+    }
+
+    .horizontal-video-block {
+        grid-column: 1 / 5; /* Desde columna 1 hasta 4 */
+        grid-row: 5 / 6; /* En fila 5 */
+    }
+
+     .gradient-logo-animation-block {
+         grid-column: 5 / 6; /* En columna 5 */
+         grid-row: 5 / 8; /* Desde fila 5 hasta 7 */
+         background: linear-gradient(45deg, var(--color-pop), var(--color-primary));
+         color: white;
+     }
+
+    .avatar-block {
+        grid-column: 1 / 3; /* Desde columna 1 hasta 2 */
+        grid-row: 6 / 8; /* Desde fila 6 hasta 7 */
+    }
+
+     .icons-block-2 {
+         grid-column: 3 / 5; /* Desde columna 3 hasta 4 */
+         grid-row: 6 / 7; /* En fila 6 */
+         background-color: var(--color-primary);
+     }
+
+     .empty-block {
+         grid-column: 3 / 5; /* Desde columna 3 hasta 4 */
+         grid-row: 7 / 8; /* En fila 7 */
+          background-color: var(--color-primary-hover);
+     }
+
+     .avatar-block .profile-image-container {
+         width: 100px; /* Ajustar tamaño del contenedor de imagen dentro del item */
+         height: 100px;
+         border-radius: 50%;
+         background: #555; /* Color temporal para visualizar */
+         margin-bottom: 10px;
+     }
+
+    .about-section {
+        background: none; /* Eliminar fondo de las secciones internas */
+        padding: 0.5rem 0; /* Ajustar padding */
+        box-shadow: none; /* Eliminar sombra */
+        text-align: left; /* Alinear texto de secciones a la izquierda */
+    }
+
+    .about-section h2 {
+         color: var(--color-pop); /* Ajustar color de los títulos */
+         font-size: 1.5rem;
+         margin-bottom: 0.5rem;
+    }
+
+    .about-section p {
+        color: var(--color-text-muted); /* Ajustar color del texto */
+        font-size: 1rem;
+    }
+
+    /* Remover estilos antiguos no necesarios */
+    /* .large-text-block, .black-box, .avatar-box, .icons-box, .smaller-blue-box, .gradient-logo-box ya no se usan con la estructura de 8 items */
+    /* .profile-section ya fue removido */
+
+    /* Responsive adjustments */
+
+    /* Medium screens (2 columns) */
+    @media (max-width: 1024px) {
+        .bento-grid-container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: 15px; /* Ajustar gap para pantallas más pequeñas */
+        }
+
+        .grid-item {
+             /* Resetear posicionamiento de desktop */
+            grid-column: auto !important;
+            grid-row: auto !important;
+            min-height: 100px; /* Ajustar altura mínima */
+        }
+
+        /* Definir layout en 2 columnas */
+        .history-block {
+            grid-column: 1 / span 2;
+        }
+
+        .car-animation-block {
+            grid-column: 1 / span 2;
+        }
+
+        .icons-block-1 {
+             grid-column: 1 / span 1;
+        }
+
+        .icons-block-2 {
+             grid-column: 2 / span 1;
+        }
+
+        .horizontal-video-block {
+             grid-column: 1 / span 2;
+        }
+
+        .avatar-block {
+            grid-column: 1 / span 1;
+        }
+
+         .empty-block {
+             grid-column: 2 / span 1;
+         }
+
+        .gradient-logo-animation-block {
+            grid-column: 1 / span 2;
+        }
+    }
+
+    /* Small screens (1 column) */
+    @media (max-width: 768px) {
+        .bento-grid-container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            gap: 10px; /* Ajustar gap para pantallas pequeñas */
+        }
+
+        .grid-item {
+            /* Resetear posicionamiento y hacer que todos ocupen 1 columna */
+            grid-column: 1 / span 1 !important;
+            grid-row: auto !important;
+             min-height: 80px; /* Ajustar altura mínima */
+        }
+
+        /* Los elementos ya se apilan en el orden del HTML por defecto */
+    }
+
 </style> 

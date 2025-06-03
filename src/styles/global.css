@@ -10,15 +10,19 @@
   
   /* Paleta de colores */
   --color-background: #0b0e14;
+  --color-background-rgb: 11, 14, 20;
   --color-background-alt: #0f2027;
   --color-pop: #d90368;
   --color-pop-hover: #920044;
   --color-primary: #2196f3;
+  --color-primary-rgb: 33, 150, 243;
   --color-primary-hover: #215df3;
+  --color-primary-hover-rgb: 33, 93, 243;
   --color-primary-osc: #1f2a44;
   --color-primary-osc-hover: #0d1d42;
   --color-text: #e0f0ff;
   --color-text-muted: #c8e0f7;
+  --color-text-muted-rgb: 200, 224, 247;
 }   
 
 /* GENERAL RESET */
@@ -276,4 +280,6 @@ footer h2 {
   color: white;
   scroll-behavior: smooth;
 }
+
+
 
