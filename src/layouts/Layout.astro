@@ -15,10 +15,13 @@ interface Props {
 const { 
 	title = "WinStar", 
 	description = "WinStar - Soluciones Tecnológicas Innovadoras",
-	image = "/images/og-image.jpg",
+	image = "/assets/WinStarLogoWeb.svg",
 	keywords = "tecnología, soluciones, innovación, desarrollo, software",
 	author = "WinStar Team"
 } = Astro.props;
+
+const baseUrl = "https://sam25549.github.io/Portfolio_ProyectoWeb";
+const fullImageUrl = `${baseUrl}${image}`;
 ---
 
 <!doctype html>
@@ -39,14 +42,14 @@ const {
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={image} />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:image" content={fullImageUrl} />
+		<meta property="og:url" content={baseUrl} />
 		
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={image} />
+		<meta name="twitter:image" content={fullImageUrl} />
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	</head>
