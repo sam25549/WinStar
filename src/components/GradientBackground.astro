@@ -46,11 +46,12 @@ const currentGradient = gradients[page];
 <style>
   .gradient-bg {
     position: relative;
-    background-size: 600% 600%;
+    background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: white;
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
+    padding: 1rem;
   }
 
   .gradient-overlay {
@@ -93,5 +94,31 @@ const currentGradient = gradients[page];
 
   .gradient-services {
     background: linear-gradient(-45deg, #614385, #516395, #2c5364);
+  }
+
+  @media (min-width: 640px) {
+    .gradient-bg {
+      padding: 1.5rem;
+      background-size: 300% 300%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .gradient-bg {
+      padding: 2rem;
+      background-size: 200% 200%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gradient-bg {
+      padding: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .gradient-bg {
+      padding: 3rem;
+    }
   }
 </style> 

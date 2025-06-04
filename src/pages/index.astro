@@ -56,8 +56,8 @@ const author = "Samantha";
 			<p>Excited for this journey? Come join us!</p>
 		</div>
 		<div class="intro-images">
-			<img src="/src/img/logo.png" alt="logo" class="hover-img" />
-			<img src="/src/img/logo.png" alt="logo" class="hover-img" />
+			<img src="/src/assets/Profile.png" alt="logo" class="hover-img" />
+			<img src="/src/assets/profileNormsl.png" alt="logo" class="hover-img" />
 		</div>
 	</section>
 
@@ -235,6 +235,153 @@ const author = "Samantha";
 	pointer-events: none;
 	filter: drop-shadow(1px 1px var(--color-primary-hover));
 	image-rendering: pixelated;
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 2rem;
+	gap: 2rem;
+	background-color: var(--color-background);
+}
+
+.intro-text {
+	max-width: 800px;
+	text-align: center;
+}
+
+.intro-text p {
+	margin-bottom: 1.5rem;
+	font-size: 1.2rem;
+	line-height: 1.6;
+}
+
+.intro-images {
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+}
+
+.hover-img {
+	max-width: 200px;
+	height: auto;
+}
+
+#services {
+	padding: 4rem 2rem;
+	background-color: var(--color-background);
+}
+
+#services h2 {
+	text-align: center;
+	margin-bottom: 3rem;
+	font-size: 2.5rem;
+}
+
+.service-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	align-items: center;
+}
+
+.service-list li {
+	width: 100%;
+	max-width: 800px;
+}
+
+.service-list h3 {
+	font-size: 1.8rem;
+	margin: 0;
+}
+
+.projects-btn {
+	display: block;
+	margin: 4rem auto 0;
+	padding: 1rem 2rem;
+	background-color: var(--color-pop);
+	color: var(--color-text);
+	text-decoration: none;
+	border-radius: 8px;
+	text-align: center;
+	width: fit-content;
+	transition: background-color 0.3s;
+}
+
+.projects-btn:hover {
+	background-color: var(--color-pop-hover);
+}
+
+@media (min-width: 768px) {
+	.intro {
+		flex-direction: row;
+		padding: 6rem 4rem;
+	}
+
+	.intro-text {
+		text-align: left;
+	}
+
+	.intro-text p {
+		font-size: 1.4rem;
+	}
+
+	.hover-img {
+		max-width: 300px;
+	}
+
+	#services {
+		padding: 6rem 4rem;
+	}
+
+	#services h2 {
+		font-size: 3rem;
+	}
+
+	.service-list h3 {
+		font-size: 2.2rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.intro {
+		padding: 3rem 1rem;
+	}
+
+	.intro-text p {
+		font-size: 1rem;
+	}
+
+	.hover-img {
+		max-width: 150px;
+	}
+
+	#services {
+		padding: 3rem 1rem;
+	}
+
+	#services h2 {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.service-list {
+		gap: 2rem;
+	}
+
+	.service-list h3 {
+		font-size: 1.5rem;
+	}
+
+	.projects-btn {
+		margin-top: 3rem;
+		padding: 0.8rem 1.6rem;
+	}
 }
 </style>
 

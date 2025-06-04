@@ -125,6 +125,7 @@ const projects = [
                     <>
                         <button class="project-link" onclick="window.openGallery()">{project.linkText}</button>
                         <div class="gallery-container">
+                            <button class="close-button" onclick="window.closeGallery()"></button>
                             {galleryImages.map((image, imgIndex) => (
                                 <div class="gallery-item" data-index={imgIndex}>
                                     {image.endsWith('.mp4') ? (
@@ -148,6 +149,17 @@ const projects = [
                     <>
                         <button class="project-link" onclick="window.openAnimationCarousel()">{project.linkText}</button>
                         <AnimationCarousel videos={project.animationVideos} />
+                        <div class="animation-carousel-container">
+                            <button class="close-button" onclick="window.closeAnimationCarousel()"></button>
+                            {project.animationVideos.map((video, videoIndex) => (
+                                <div class="animation-item" data-index={videoIndex}>
+                                    <video controls>
+                                        <source src={video.src} type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                </div>
+                            ))}
+                        </div>
                     </>
                 )}
             </div>
@@ -221,9 +233,9 @@ const projects = [
     }
 
     .stroke-text {
-        font-size: 6rem;
+        font-size: clamp(2.5rem, 8vw, 6rem);
         font-weight: 900;
-        -webkit-text-stroke: 3px var(--color-text);
+        -webkit-text-stroke: clamp(1px, 1vw, 3px) var(--color-text);
         color: transparent;
         margin: 0;
         letter-spacing: 0.2em;
@@ -232,21 +244,22 @@ const projects = [
     }
 
     .projects-container {
-        width: 90%;
+        width: 95%;
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 1rem;
     }
 
     .project-section {
         display: flex;
         align-items: center;
         margin-bottom: 4rem;
-        padding: 2rem;
+        padding: clamp(1rem, 3vw, 2rem);
         background-color: var(--color-background);
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: clamp(1rem, 3vw, 2rem);
     }
 
     .project-section:last-child {
@@ -255,8 +268,8 @@ const projects = [
 
     .project-content {
         flex: 1;
-        padding: 1.5rem;
-        min-width: 300px;
+        padding: clamp(1rem, 3vw, 1.5rem);
+        min-width: 280px;
     }
 
     .project-image {
@@ -264,8 +277,8 @@ const projects = [
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem;
-        min-width: 300px;
+        padding: clamp(0.5rem, 2vw, 1rem);
+        min-width: 280px;
         max-width: 600px;
         overflow: hidden;
     }
@@ -305,27 +318,19 @@ const projects = [
     }
 
     .project-content h2 {
-        color: #007bff;
+        font-size: clamp(1.5rem, 4vw, 2rem);
         margin-bottom: 0.75rem;
-        font-size: 2em;
-        margin-bottom: 0.75rem;
-        font-size: 2em;
     }
 
     .project-content p {
-        color: #555;
-        line-height: 1.8;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        line-height: 1.6;
         margin-bottom: 1.5rem;
-        font-size: 1.1em;
-        color: #555;
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-        font-size: 1.1em;
     }
 
     .project-tags {
         display: flex;
-        gap: 0.75rem;
+        gap: clamp(0.5rem, 1.5vw, 0.75rem);
         flex-wrap: wrap;
         margin-bottom: 1.5rem;
     }
@@ -333,9 +338,9 @@ const projects = [
     .project-tags span {
         background: #e9ecef;
         color: #495057;
-        padding: 0.4rem 1rem;
+        padding: clamp(0.3rem, 1vw, 0.4rem) clamp(0.8rem, 2vw, 1rem);
         border-radius: 20px;
-        font-size: 0.9em;
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
         font-weight: bold;
         transition: all 0.3s ease;
         cursor: pointer;
@@ -358,10 +363,10 @@ const projects = [
         display: inline-block;
         background-color: #007bff;
         color: white;
-        padding: 0.75rem 2rem;
+        padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1.5rem, 3vw, 2rem);
         border-radius: 5px;
         text-decoration: none;
-        font-size: 1em;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
         transition: background-color 0.3s ease;
     }
 
@@ -369,46 +374,102 @@ const projects = [
         background-color: #0056b3;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
+    /* Media Queries Mejoradas */
+    @media (max-width: 1024px) {
         .project-section {
             flex-direction: column;
-            gap: 1rem;
-        }
-
-        .left-aligned .project-content,
-        .left-aligned .project-image,
-        .right-aligned .project-content,
-        .right-aligned .project-image {
-            order: 0; /* Reset order for small screens */
+            text-align: center;
         }
 
         .project-content,
         .project-image {
             width: 100%;
             max-width: 100%;
+        }
+
+        .project-tags {
+            justify-content: center;
+        }
+
+        .project-link {
+            margin: 0 auto;
+            display: block;
+            width: fit-content;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo-container {
+            height: 60vh;
+        }
+
+        .header-line {
+            margin: 1rem 0 2rem 0;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+        }
+
+        .gallery-container,
+        .animation-carousel-container {
+            padding: 1rem;
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-item,
+        .animation-item {
+            height: 200px;
+        }
+
+        .close-button {
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+        }
+
+        .close-button::before,
+        .close-button::after {
+            width: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo-container {
+            height: 50vh;
+        }
+
+        .project-section {
             padding: 1rem;
         }
 
-        .project-image img {
-            max-width: 100%;
+        .project-content {
+            padding: 0.5rem;
         }
 
-        .project-image iframe {
-            height: 300px;
+        .project-image {
+            padding: 0.5rem;
+        }
+
+        .gallery-item,
+        .animation-item {
+            height: 180px;
+        }
+    }
+
+    /* Ajustes para dispositivos muy pequeños */
+    @media (max-width: 320px) {
+        .logo-container {
+            height: 40vh;
         }
 
         .stroke-text {
-            font-size: 4rem;
+            letter-spacing: 0.1em;
         }
 
-        .project-preview {
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .preview-video {
-            max-width: 100%;
+        .project-tags span {
+            padding: 0.3rem 0.6rem;
         }
     }
 
@@ -465,7 +526,8 @@ const projects = [
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .gallery-container {
+    .gallery-container,
+    .animation-carousel-container {
         position: fixed;
         top: 0;
         left: 0;
@@ -478,6 +540,46 @@ const projects = [
         gap: 1rem;
         padding: 2rem;
         overflow-y: auto;
+    }
+
+    .close-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+
+    .close-button::before,
+    .close-button::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: white;
+        transform-origin: center;
+    }
+
+    .close-button::before {
+        transform: rotate(45deg);
+    }
+
+    .close-button::after {
+        transform: rotate(-45deg);
+    }
+
+    .close-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
     }
 
     .gallery-container.active {
@@ -507,32 +609,6 @@ const projects = [
         object-fit: contain;
     }
 
-    @media (max-width: 768px) {
-        .gallery-container {
-            grid-template-columns: 1fr;
-            padding: 1rem;
-        }
-
-        .gallery-item {
-            height: 250px;
-        }
-    }
-
-    .animation-carousel-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.9);
-        z-index: 1000;
-        display: none;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1rem;
-        padding: 2rem;
-        overflow-y: auto;
-    }
-
     .animation-carousel-container.active {
         display: grid;
     }
@@ -557,17 +633,6 @@ const projects = [
         height: 100%;
         object-fit: contain;
     }
-
-    @media (max-width: 768px) {
-        .animation-carousel-container {
-            grid-template-columns: 1fr;
-            padding: 1rem;
-        }
-
-        .animation-item {
-            height: 250px;
-        }
-    }
 </style>
 
 <script>
@@ -580,25 +645,14 @@ const projects = [
         }
     };
 
-    // Cerrar galería con Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const gallery = document.querySelector('.gallery-container');
-            if (gallery?.classList.contains('active')) {
-                gallery.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-    });
-
-    // Cerrar galería al hacer clic fuera de las imágenes
-    document.addEventListener('click', (e) => {
+    // Función para cerrar la galería
+    (window as any).closeGallery = () => {
         const gallery = document.querySelector('.gallery-container');
-        if (gallery?.classList.contains('active') && e.target === gallery) {
+        if (gallery) {
             gallery.classList.remove('active');
             document.body.style.overflow = '';
         }
-    });
+    };
 
     // Función para abrir el carrusel de animaciones
     (window as any).openAnimationCarousel = () => {
@@ -608,4 +662,35 @@ const projects = [
             document.body.style.overflow = 'hidden';
         }
     };
+
+    // Función para cerrar el carrusel de animaciones
+    (window as any).closeAnimationCarousel = () => {
+        const carousel = document.querySelector('.animation-carousel-container');
+        if (carousel) {
+            carousel.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    // Cerrar galería con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            (window as any).closeGallery();
+            (window as any).closeAnimationCarousel();
+        }
+    });
+
+    // Cerrar galería al hacer clic fuera de las imágenes
+    document.addEventListener('click', (e) => {
+        const gallery = document.querySelector('.gallery-container');
+        const carousel = document.querySelector('.animation-carousel-container');
+        
+        if (gallery?.classList.contains('active') && e.target === gallery) {
+            (window as any).closeGallery();
+        }
+        
+        if (carousel?.classList.contains('active') && e.target === carousel) {
+            (window as any).closeAnimationCarousel();
+        }
+    });
 </script> 

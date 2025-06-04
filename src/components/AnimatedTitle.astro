@@ -102,38 +102,8 @@ const { text, class: className = '' } = Astro.props;
         overflow: hidden;
         text-align: center;
         width: 100%;
-        font-size: 2.25rem; /* 36px - base size */
+        font-size: 2rem;
         font-weight: bold;
-    }
-
-    @media (min-width: 640px) {
-        .animated-title {
-            font-size: 3rem; /* 48px */
-        }
-    }
-
-    @media (min-width: 768px) {
-        .animated-title {
-            font-size: 4.5rem; /* 72px */
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .animated-title {
-            font-size: 6rem; /* 96px */
-        }
-    }
-
-    @media (min-width: 1280px) {
-        .animated-title {
-            font-size: 7.5rem; /* 120px */
-        }
-    }
-
-    @media (min-width: 1536px) {
-        .animated-title {
-            font-size: 9rem; /* 144px */
-        }
     }
 
     .char-container {
@@ -151,5 +121,35 @@ const { text, class: className = '' } = Astro.props;
         position: absolute;
         top: 100%;
         left: 0;
+    }
+
+    @media (min-width: 640px) {
+        .animated-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .animated-title {
+            font-size: 3.5rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .animated-title {
+            font-size: 4.5rem;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .animated-title {
+            font-size: 5.5rem;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .animated-title {
+            font-size: 9rem; /* 144px */
+        }
     }
 </style> 
