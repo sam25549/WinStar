@@ -1,16 +1,8 @@
-import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
+// @ts-check
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 
+// https://astro.build/config
 export default defineConfig({
-  site: "https://juanfuent-es.github.io/alt-me",
-  base: "/alt-me",
-  trailingSlash: "never",
-  outDir: "docs",
-  vite: {
-    plugins: [tailwindcss()]
-  },
-  typescript: {
-    strict: false,
-    check: false
-  }
+  integrations: [tailwind()]
 });
