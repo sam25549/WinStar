@@ -1,12 +1,14 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://sam25549.github.io/WinStar",
-  base: "/WinStar",
+  site: "https://juanfuent-es.github.io/alt-me",
+  base: "/alt-me",
   trailingSlash: "never",
   outDir: "docs",
-  integrations: [tailwind()],
+  vite: {
+    plugins: [tailwindcss()]
+  },
   typescript: {
     strict: false,
     check: false
