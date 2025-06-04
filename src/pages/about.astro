@@ -72,28 +72,68 @@ const author = "Samantha";
         </div>
 
         <div class="grid-item horizontal-video-block">
-            <!-- Aquí irá el video en horizontal -->
-            Video en horizontal
+            <div class="balls-container">
+                <div class="ball ball-1"></div>
+                <div class="ball ball-2"></div>
+                <div class="ball ball-3"></div>
+                <div class="ball ball-4"></div>
+                <div class="ball ball-5"></div>
+            </div>
         </div>
 
         <div class="grid-item avatar-block">
-             <div class="profile-image-container">
-                 <!-- Aquí irá la imagen completa de avatar -->
-             </div>
-             imagen completa de
-             avatar
+            <div class="avatar-container">
+                <img 
+                    src="/src/assets/profileNormsl.png" 
+                    alt="Perfil Normal" 
+                    class="avatar-image profile-normal"
+                />
+                <img 
+                    src="/src/assets/profileAzul.png" 
+                    alt="Perfil Azul" 
+                    class="avatar-image profile-azul"
+                />
+            </div>
         </div>
 
         <div class="grid-item car-animation-block">
-            ANIMACION DEL CARRO CON WINSTAR
+            <video 
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                class="animation-video"
+            >
+                <source src="https://res.cloudinary.com/dq1uqbx0a/video/upload/v1749003939/logoBrillando_hwtzcr.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
         </div>
 
          <div class="grid-item icons-block-1">
-             ICONS
+             <div class="adobe-icons">
+                 <i class="fas fa-palette" title="Illustrator" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-film" title="After Effects" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-camera" title="Lightroom" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-video" title="Premiere Pro" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-image" title="Photoshop" style="color: var(--color-primary); font-size: 2rem;"></i>
+             </div>
          </div>
 
          <div class="grid-item icons-block-2">
-             ICONS DE HERRAMIENTAS QUE SÉ
+             <div class="skills-icons">
+                 <i class="fas fa-code" title="Código" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-paint-brush" title="Pintura" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-pencil-alt" title="Dibujo" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-tools" title="Manualidades" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-laptop-code" title="Desarrollo" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-users" title="Liderazgo" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-heart" title="Empatía" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-smile" title="Felicidad" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-brain" title="Inteligencia" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-lightbulb" title="Ingenio" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-magic" title="Creatividad" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-rocket" title="Perseverancia" style="color: var(--color-text); font-size: 1.5rem;"></i>
+             </div>
          </div>
 
          <div class="grid-item empty-block">
@@ -102,8 +142,12 @@ const author = "Samantha";
          </div>
 
          <div class="grid-item gradient-logo-animation-block">
-             Logo animacion en
-             gradiante
+             <div class="gradient-background"></div>
+             <img 
+                 src="/src/assets/WinStarLogoWeb.png" 
+                 alt="WinStar Logo" 
+                 class="logo-image"
+             />
          </div>
 
     </div>
@@ -247,27 +291,223 @@ const author = "Samantha";
     }
 
     .car-animation-block {
-        grid-column: 4 / 6; /* Desde columna 4 hasta 5 */
-        grid-row: 2 / 5; /* Desde fila 2 hasta 4 */
+        grid-column: 4 / 6;
+        grid-row: 2 / 5;
         background-color: #000;
         color: white;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .animation-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .horizontal-video-block {
-        grid-column: 1 / 5; /* Desde columna 1 hasta 4 */
-        grid-row: 5 / 6; /* En fila 5 */
+        grid-column: 1 / 5;
+        grid-row: 5 / 6;
+        background: var(--color-background);
+        overflow: hidden;
+        position: relative;
     }
 
-     .gradient-logo-animation-block {
-         grid-column: 5 / 6; /* En columna 5 */
-         grid-row: 5 / 8; /* Desde fila 5 hasta 7 */
-         background: linear-gradient(45deg, var(--color-pop), var(--color-primary));
-         color: white;
-     }
+    .balls-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ball {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        opacity: 0.6;
+        filter: blur(1px);
+    }
+
+    .ball-1 {
+        background: var(--color-primary);
+        animation: moveBall1 6s infinite;
+    }
+
+    .ball-2 {
+        background: var(--color-pop);
+        animation: moveBall2 6s infinite;
+    }
+
+    .ball-3 {
+        background: var(--color-text);
+        animation: moveBall3 6s infinite;
+    }
+
+    .ball-4 {
+        background: var(--color-primary);
+        animation: moveBall4 6s infinite;
+    }
+
+    .ball-5 {
+        background: var(--color-pop);
+        animation: moveBall5 6s infinite;
+    }
+
+    @keyframes moveBall1 {
+        0%, 100% { transform: translateX(-400px) translateY(0); }
+        25% { transform: translateX(-200px) translateY(-40px); }
+        50% { transform: translateX(0) translateY(0); }
+        75% { transform: translateX(200px) translateY(40px); }
+    }
+
+    @keyframes moveBall2 {
+        0%, 100% { transform: translateX(-300px) translateY(40px); }
+        25% { transform: translateX(-100px) translateY(0); }
+        50% { transform: translateX(100px) translateY(-40px); }
+        75% { transform: translateX(300px) translateY(0); }
+    }
+
+    @keyframes moveBall3 {
+        0%, 100% { transform: translateX(-200px) translateY(-40px); }
+        25% { transform: translateX(0) translateY(0); }
+        50% { transform: translateX(200px) translateY(40px); }
+        75% { transform: translateX(400px) translateY(0); }
+    }
+
+    @keyframes moveBall4 {
+        0%, 100% { transform: translateX(-100px) translateY(0); }
+        25% { transform: translateX(100px) translateY(40px); }
+        50% { transform: translateX(300px) translateY(0); }
+        75% { transform: translateX(500px) translateY(-40px); }
+    }
+
+    @keyframes moveBall5 {
+        0%, 100% { transform: translateX(0) translateY(40px); }
+        25% { transform: translateX(200px) translateY(0); }
+        50% { transform: translateX(400px) translateY(-40px); }
+        75% { transform: translateX(600px) translateY(0); }
+    }
+
+    .gradient-logo-animation-block {
+        grid-column: 5 / 6;
+        grid-row: 5 / 8;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gradient-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            45deg,
+            var(--color-primary),
+            var(--color-pop),
+            var(--color-text),
+            var(--color-primary)
+        );
+        background-size: 400% 400%;
+        animation: gradientAnimation 8s ease infinite;
+    }
+
+    .logo-image {
+        width: 80%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+        animation: logoOpacity 4s ease-in-out infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes logoOpacity {
+        0%, 100% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
 
     .avatar-block {
-        grid-column: 1 / 3; /* Desde columna 1 hasta 2 */
-        grid-row: 6 / 8; /* Desde fila 6 hasta 7 */
+        grid-column: 1 / 3;
+        grid-row: 6 / 8;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .avatar-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .avatar-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+    }
+
+    .profile-normal {
+        animation: slideLeft 8s infinite alternate;
+    }
+
+    .profile-azul {
+        animation: slideRight 8s infinite alternate;
+    }
+
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        50% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        50% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
     }
 
      .icons-block-2 {
@@ -280,14 +520,6 @@ const author = "Samantha";
          grid-column: 3 / 5;
          grid-row: 7 / 8;
          background-color: transparent;
-     }
-
-     .avatar-block .profile-image-container {
-         width: 100px; /* Ajustar tamaño del contenedor de imagen dentro del item */
-         height: 100px;
-         border-radius: 50%;
-         background: #555; /* Color temporal para visualizar */
-         margin-bottom: 10px;
      }
 
     .about-section {
@@ -417,6 +649,51 @@ const author = "Samantha";
             font-size: 2rem;
             -webkit-text-stroke: 1.5px var(--color-text);
             letter-spacing: 0.1em;
+        }
+    }
+
+    .adobe-icons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .adobe-icons i {
+        transition: transform 0.3s ease;
+    }
+
+    .adobe-icons i:hover {
+        transform: scale(1.2);
+    }
+
+    .skills-icons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        justify-items: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .skills-icons i {
+        transition: transform 0.3s ease;
+    }
+
+    .skills-icons i:hover {
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+        .skills-icons {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .skills-icons {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 
