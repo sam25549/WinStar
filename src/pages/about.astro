@@ -36,7 +36,16 @@ const author = "Samantha";
 
     <div class="profile-section">
         <div class="profile-image-container">
-            <!-- Aquí irá la imagen de perfil -->
+            <video 
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                class="profile-video"
+            >
+                <source src="https://res.cloudinary.com/dq1uqbx0a/video/upload/v1749042954/Intro_WebWinStar_kivuwa.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
         </div>
     </div>
 
@@ -216,14 +225,22 @@ const author = "Samantha";
         display: flex;
         justify-content: center;
         margin-bottom: 2rem;
+        padding: 0 1rem;
     }
 
     .profile-image-container {
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
         background: none;
         overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .profile-video {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     h1 {
@@ -694,6 +711,37 @@ const author = "Samantha";
     @media (max-width: 480px) {
         .skills-icons {
             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Media queries para pantallas más grandes */
+    @media (min-width: 768px) {
+        .profile-section {
+            padding: 0 2rem;
+        }
+
+        .profile-image-container {
+            max-width: 600px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .profile-section {
+            padding: 0 3rem;
+        }
+
+        .profile-image-container {
+            max-width: 800px;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .profile-section {
+            padding: 0 4rem;
+        }
+
+        .profile-image-container {
+            max-width: 1000px;
         }
     }
 
