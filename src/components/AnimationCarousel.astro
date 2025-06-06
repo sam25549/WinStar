@@ -1,0 +1,242 @@
+---
+interface Props {
+    videos: {
+        title: string;
+        src: string;
+    }[];
+}
+
+const { videos } = Astro.props;
+---
+
+<div class="animation-carousel-container">
+    <div class="animation-carousel">
+        {videos.map((video, index) => (
+            <div class="animation-slide" data-index={index}>
+                <video controls preload="metadata">
+                    <source src={video.src} type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <h3>{video.title}</h3>
+            </div>
+        ))}
+    </div>
+    <button class="carousel-button prev" id="prevButton">❮</button>
+    <button class="carousel-button next" id="nextButton">❯</button>
+</div>
+
+<style>
+    .animation-carousel-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .animation-carousel-container.active {
+        display: flex;
+    }
+
+    .animation-carousel {
+        position: relative;
+        width: 80%;
+        height: 80%;
+        overflow: hidden;
+    }
+
+    .animation-slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    .animation-slide.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .animation-slide video {
+        max-width: 100%;
+        max-height: 80%;
+        object-fit: contain;
+        background: #000;
+    }
+
+    .animation-slide h3 {
+        color: white;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 2rem;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        background: none;
+        padding: 0.75rem;
+        opacity: 0.7;
+    }
+
+    .carousel-button:hover {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev {
+        left: 0.5rem;
+    }
+
+    .next {
+        right: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+        .carousel-button {
+            font-size: 2.25rem;
+            padding: 1rem;
+        }
+
+        .prev {
+            left: 1rem;
+        }
+
+        .next {
+            right: 1rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .carousel-button {
+            font-size: 2.5rem;
+            padding: 1.25rem;
+        }
+
+        .prev {
+            left: 1.5rem;
+        }
+
+        .next {
+            right: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    let currentSlide = 0;
+    let slides: NodeListOf<HTMLElement>;
+    let videos: NodeListOf<HTMLVideoElement>;
+
+    function initializeCarousel() {
+        slides = document.querySelectorAll('.animation-slide');
+        videos = document.querySelectorAll('.animation-slide video');
+        
+        // Agregar event listeners a los botones
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        
+        if (prevButton) {
+            prevButton.addEventListener('click', prevAnimationSlide);
+        }
+        
+        if (nextButton) {
+            nextButton.addEventListener('click', nextAnimationSlide);
+        }
+
+        if (slides.length > 0) {
+            showSlide(0);
+        }
+    }
+
+    function showSlide(index: number) {
+        // Pausar todos los videos
+        videos.forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+        });
+
+        // Ocultar todos los slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+
+        // Mostrar el slide actual
+        slides[index].classList.add('active');
+        
+        // Preparar el video actual
+        const currentVideo = videos[index];
+        if (currentVideo) {
+            currentVideo.load();
+        }
+    }
+
+    function nextAnimationSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevAnimationSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Inicializar el carrusel cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', initializeCarousel);
+
+    // Cerrar carrusel con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const carousel = document.querySelector('.animation-carousel-container');
+            if (carousel?.classList.contains('active')) {
+                // Pausar todos los videos antes de cerrar
+                videos.forEach(video => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+                carousel.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+
+    // Cerrar carrusel al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        const carousel = document.querySelector('.animation-carousel-container');
+        if (carousel?.classList.contains('active') && e.target === carousel) {
+            // Pausar todos los videos antes de cerrar
+            videos.forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+            carousel.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Manejar la finalización de los videos
+    document.addEventListener('ended', (e) => {
+        const video = e.target as HTMLVideoElement;
+        if (video && video.parentElement?.classList.contains('animation-slide')) {
+            nextAnimationSlide();
+        }
+    });
+</script> 

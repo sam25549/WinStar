@@ -1,4 +1,5 @@
 ---
+import global from "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
 
 const title = "Sobre WinStar - Nuestra Historia y Misión";
@@ -15,30 +16,241 @@ const author = "Samantha";
     keywords={keywords}
     author={author}
 >
-    <h1>Sobre Nosotros</h1>
-    <div class="about-content">
-        <section class="about-section">
-            <h2>Nuestra Historia</h2>
-            <p>WinStar nació de la pasión por la innovación y el deseo de crear soluciones tecnológicas que marquen la diferencia. Desde nuestros inicios, nos hemos comprometido a ofrecer productos y servicios de la más alta calidad.</p>
-        </section>
+    <div class="about-header">
+        <h1 class="stroke-text">ABOUT.</h1>
+    </div>
 
-        <section class="about-section">
-            <h2>Nuestra Misión</h2>
-            <p>Buscamos transformar la industria tecnológica a través de soluciones innovadoras y sostenibles, siempre poniendo al cliente en el centro de todo lo que hacemos.</p>
-        </section>
+    <div class="slider-container">
+        <div class="slider">
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+        </div>
+    </div>
 
-        <section class="about-section">
-            <h2>Nuestro Equipo</h2>
-            <p>Contamos con un equipo de profesionales altamente calificados y apasionados por la tecnología, comprometidos con la excelencia y la innovación constante.</p>
-        </section>
+
+    <div class="profile-section">
+        <div class="profile-image-container">
+            <video 
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                class="profile-video"
+            >
+                <source src="https://res.cloudinary.com/dq1uqbx0a/video/upload/v1749042954/Intro_WebWinStar_kivuwa.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <div class="slider">
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+            <span class="stroke-text-small">about</span>
+        </div>
+    </div>
+    
+    <div class="bento-grid-container">
+        <div class="grid-item history-block">
+            <section class="about-section">
+                <h2>Our Story</h2>
+                <p>WinStar was born from a passion for innovation and a desire to create 
+                    technological solutions that make a difference. Since our beginnings, 
+                    we have been committed to delivering products and services of the highest quality.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Our Mission</h2>
+                <p>We strive to transform the tech industry through innovative and sustainable 
+                    solutions, always putting the customer at the heart of everything we do.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>Our Team</h2>
+                <p>We have a team of highly qualified professionals who are passionate about 
+                    technology and committed to excellence and continuous innovation.</p>
+            </section>
+        </div>
+
+        <div class="grid-item horizontal-video-block">
+            <div class="balls-container">
+                <div class="ball ball-1"></div>
+                <div class="ball ball-2"></div>
+                <div class="ball ball-3"></div>
+                <div class="ball ball-4"></div>
+                <div class="ball ball-5"></div>
+            </div>
+        </div>
+
+        <div class="grid-item avatar-block">
+            <div class="avatar-container">
+                <img 
+                    src="/src/assets/profileNormsl.png" 
+                    alt="Perfil Normal" 
+                    class="avatar-image profile-normal"
+                />
+                <img 
+                    src="/src/assets/profileAzul.png" 
+                    alt="Perfil Azul" 
+                    class="avatar-image profile-azul"
+                />
+            </div>
+        </div>
+
+        <div class="grid-item car-animation-block">
+            <video 
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                class="animation-video"
+            >
+                <source src="https://res.cloudinary.com/dq1uqbx0a/video/upload/v1749003939/logoBrillando_hwtzcr.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+
+         <div class="grid-item icons-block-1">
+             <div class="adobe-icons">
+                 <i class="fas fa-palette" title="Illustrator" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-film" title="After Effects" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-camera" title="Lightroom" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-video" title="Premiere Pro" style="color: var(--color-primary); font-size: 2rem;"></i>
+                 <i class="fas fa-image" title="Photoshop" style="color: var(--color-primary); font-size: 2rem;"></i>
+             </div>
+         </div>
+
+         <div class="grid-item icons-block-2">
+             <div class="skills-icons">
+                 <i class="fas fa-code" title="Código" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-paint-brush" title="Pintura" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-pencil-alt" title="Dibujo" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-tools" title="Manualidades" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-laptop-code" title="Desarrollo" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-users" title="Liderazgo" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-heart" title="Empatía" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-smile" title="Felicidad" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-brain" title="Inteligencia" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-lightbulb" title="Ingenio" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-magic" title="Creatividad" style="color: var(--color-text); font-size: 1.5rem;"></i>
+                 <i class="fas fa-rocket" title="Perseverancia" style="color: var(--color-text); font-size: 1.5rem;"></i>
+             </div>
+         </div>
+
+         <div class="grid-item empty-block">
+             <!-- Espacio vacío -->
+             VACIO
+         </div>
+
+         <div class="grid-item gradient-logo-animation-block">
+             <div class="gradient-background"></div>
+             <img 
+                 src="/src/assets/WinStarLogoWeb.png" 
+                 alt="WinStar Logo" 
+                 class="logo-image"
+             />
+         </div>
+
     </div>
 </Layout>
 
 <style>
+    .about-header {
+        text-align: center;
+        margin: 4rem 0;
+        position: relative;
+        z-index: 1;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .stroke-text {
+        font-size: 6rem;
+        font-weight: 900;
+        -webkit-text-stroke: 3px var(--color-text);
+        color: transparent;
+        margin: 0;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-family: var(--font-family-header);
+    }
+
+    .slider-container {
+        width: 100%;
+        overflow: hidden;
+        background: transparent;
+        padding: 2rem 0;
+        margin: 8rem 0;
+        position: relative;
+    }
+
+    .slider {
+        display: flex;
+        animation: slide 15s linear infinite;
+        white-space: nowrap;
+        width: max-content;
+    }
+
+    .stroke-text-small {
+        font-size: 2rem;
+        font-weight: 900;
+        -webkit-text-stroke: 2px var(--color-text-muted);
+        color: transparent;
+        margin: 0 3rem;
+        letter-spacing: 0.1em;
+        text-transform: lowercase;
+        font-family: var(--font-family-header);
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .profile-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .profile-image-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        background: none;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .profile-video {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
     h1 {
         text-align: center;
         margin-bottom: 2rem;
-        color: #333;
+        color: var(--color-background-muted);
     }
 
     .about-content {
@@ -47,7 +259,7 @@ const author = "Samantha";
     }
 
     .about-section {
-        background: #f8f9fa;
+        background: none;
         padding: 2rem;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -60,6 +272,481 @@ const author = "Samantha";
 
     .about-section p {
         line-height: 1.6;
-        color: #555;
+        color: var(--color-background-muted);
     }
+
+    .bento-grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(7, auto);
+        gap: 20px;
+        padding: 2rem;
+        margin: 0 auto;
+        background-color: var(--color-text);
+        border-radius: 20px;
+    }
+
+    .grid-item {
+        background-color: var(--color-background);
+        padding: 1.5rem;
+        border-radius: 10px;
+        color: var(--color-text);
+        overflow: hidden;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Definir áreas del grid basadas en las nuevas coordenadas 5x7 */
+    .icons-block-1 {
+        grid-column: 3 / 6; /* Desde columna 3 hasta 5 */
+        grid-row: 1 / 2; /* En fila 1 */
+    }
+
+    .history-block {
+        grid-column: 1 / 4; /* Desde columna 1 hasta 3 */
+        grid-row: 2 / 5; /* Desde fila 2 hasta 4 */
+    }
+
+    .car-animation-block {
+        grid-column: 4 / 6;
+        grid-row: 2 / 5;
+        background-color: #000;
+        color: white;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .animation-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .horizontal-video-block {
+        grid-column: 1 / 5;
+        grid-row: 5 / 6;
+        background: var(--color-background);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .balls-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ball {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        opacity: 0.6;
+        filter: blur(1px);
+    }
+
+    .ball-1 {
+        background: var(--color-primary);
+        animation: moveBall1 6s infinite;
+    }
+
+    .ball-2 {
+        background: var(--color-pop);
+        animation: moveBall2 6s infinite;
+    }
+
+    .ball-3 {
+        background: var(--color-text);
+        animation: moveBall3 6s infinite;
+    }
+
+    .ball-4 {
+        background: var(--color-primary);
+        animation: moveBall4 6s infinite;
+    }
+
+    .ball-5 {
+        background: var(--color-pop);
+        animation: moveBall5 6s infinite;
+    }
+
+    @keyframes moveBall1 {
+        0%, 100% { transform: translateX(-400px) translateY(0); }
+        25% { transform: translateX(-200px) translateY(-40px); }
+        50% { transform: translateX(0) translateY(0); }
+        75% { transform: translateX(200px) translateY(40px); }
+    }
+
+    @keyframes moveBall2 {
+        0%, 100% { transform: translateX(-300px) translateY(40px); }
+        25% { transform: translateX(-100px) translateY(0); }
+        50% { transform: translateX(100px) translateY(-40px); }
+        75% { transform: translateX(300px) translateY(0); }
+    }
+
+    @keyframes moveBall3 {
+        0%, 100% { transform: translateX(-200px) translateY(-40px); }
+        25% { transform: translateX(0) translateY(0); }
+        50% { transform: translateX(200px) translateY(40px); }
+        75% { transform: translateX(400px) translateY(0); }
+    }
+
+    @keyframes moveBall4 {
+        0%, 100% { transform: translateX(-100px) translateY(0); }
+        25% { transform: translateX(100px) translateY(40px); }
+        50% { transform: translateX(300px) translateY(0); }
+        75% { transform: translateX(500px) translateY(-40px); }
+    }
+
+    @keyframes moveBall5 {
+        0%, 100% { transform: translateX(0) translateY(40px); }
+        25% { transform: translateX(200px) translateY(0); }
+        50% { transform: translateX(400px) translateY(-40px); }
+        75% { transform: translateX(600px) translateY(0); }
+    }
+
+    .gradient-logo-animation-block {
+        grid-column: 5 / 6;
+        grid-row: 5 / 8;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gradient-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            45deg,
+            var(--color-primary),
+            var(--color-pop),
+            var(--color-text),
+            var(--color-primary)
+        );
+        background-size: 400% 400%;
+        animation: gradientAnimation 8s ease infinite;
+    }
+
+    .logo-image {
+        width: 80%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+        animation: logoOpacity 4s ease-in-out infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @keyframes logoOpacity {
+        0%, 100% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .avatar-block {
+        grid-column: 1 / 3;
+        grid-row: 6 / 8;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .avatar-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .avatar-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+    }
+
+    .profile-normal {
+        animation: slideLeft 8s infinite alternate;
+    }
+
+    .profile-azul {
+        animation: slideRight 8s infinite alternate;
+    }
+
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        50% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        50% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+
+     .icons-block-2 {
+         grid-column: 3 / 5; /* Desde columna 3 hasta 4 */
+         grid-row: 6 / 7; /* En fila 6 */
+         background-color: var(--color-primary);
+     }
+
+     .empty-block {
+         grid-column: 3 / 5;
+         grid-row: 7 / 8;
+         background-color: transparent;
+     }
+
+    .about-section {
+        background: none; /* Eliminar fondo de las secciones internas */
+        padding: 0.5rem 0; /* Ajustar padding */
+        box-shadow: none; /* Eliminar sombra */
+        text-align: left; /* Alinear texto de secciones a la izquierda */
+    }
+
+    .about-section h2 {
+         color: var(--color-pop); /* Ajustar color de los títulos */
+         font-size: 1.5rem;
+         margin-bottom: 0.5rem;
+    }
+
+    .about-section p {
+        color: var(--color-text-muted); /* Ajustar color del texto */
+        font-size: 1rem;
+    }
+
+    /* Remover estilos antiguos no necesarios */
+    /* .large-text-block, .black-box, .avatar-box, .icons-box, .smaller-blue-box, .gradient-logo-box ya no se usan con la estructura de 8 items */
+    /* .profile-section ya fue removido */
+
+    /* Responsive adjustments */
+
+    /* Medium screens (2 columns) */
+    @media (max-width: 1024px) {
+        .bento-grid-container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: 15px; /* Ajustar gap para pantallas más pequeñas */
+        }
+
+        .grid-item {
+             /* Resetear posicionamiento de desktop */
+            grid-column: auto !important;
+            grid-row: auto !important;
+            min-height: 100px; /* Ajustar altura mínima */
+        }
+
+        /* Definir layout en 2 columnas */
+        .history-block {
+            grid-column: 1 / span 2;
+        }
+
+        .car-animation-block {
+            grid-column: 1 / span 2;
+        }
+
+        .icons-block-1 {
+             grid-column: 1 / span 1;
+        }
+
+        .icons-block-2 {
+             grid-column: 2 / span 1;
+        }
+
+        .horizontal-video-block {
+             grid-column: 1 / span 2;
+        }
+
+        .avatar-block {
+            grid-column: 1 / span 1;
+        }
+
+         .empty-block {
+             grid-column: 2 / span 1;
+         }
+
+        .gradient-logo-animation-block {
+            grid-column: 1 / span 2;
+        }
+    }
+
+    /* Small screens (1 column) */
+    @media (max-width: 768px) {
+        .bento-grid-container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            gap: 10px; /* Ajustar gap para pantallas pequeñas */
+        }
+
+        .grid-item {
+            /* Resetear posicionamiento y hacer que todos ocupen 1 columna */
+            grid-column: 1 / span 1 !important;
+            grid-row: auto !important;
+             min-height: 80px; /* Ajustar altura mínima */
+        }
+
+        /* Los elementos ya se apilan en el orden del HTML por defecto */
+    }
+
+    /* Responsive adjustments para el header */
+    @media (max-width: 1024px) {
+        .about-header {
+            height: 60vh;
+            margin: 3rem 0;
+        }
+
+        .stroke-text {
+            font-size: 4.5rem;
+            -webkit-text-stroke: 2.5px var(--color-text);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .about-header {
+            height: 50vh;
+            margin: 2rem 0;
+        }
+
+        .stroke-text {
+            font-size: 3rem;
+            -webkit-text-stroke: 2px var(--color-text);
+            letter-spacing: 0.15em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .about-header {
+            height: 40vh;
+            margin: 1.5rem 0;
+        }
+
+        .stroke-text {
+            font-size: 2rem;
+            -webkit-text-stroke: 1.5px var(--color-text);
+            letter-spacing: 0.1em;
+        }
+    }
+
+    .adobe-icons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .adobe-icons i {
+        transition: transform 0.3s ease;
+    }
+
+    .adobe-icons i:hover {
+        transform: scale(1.2);
+    }
+
+    .skills-icons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        justify-items: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .skills-icons i {
+        transition: transform 0.3s ease;
+    }
+
+    .skills-icons i:hover {
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+        .skills-icons {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .skills-icons {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Media queries para pantallas más grandes */
+    @media (min-width: 768px) {
+        .profile-section {
+            padding: 0 2rem;
+        }
+
+        .profile-image-container {
+            max-width: 600px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .profile-section {
+            padding: 0 3rem;
+        }
+
+        .profile-image-container {
+            max-width: 800px;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .profile-section {
+            padding: 0 4rem;
+        }
+
+        .profile-image-container {
+            max-width: 1000px;
+        }
+    }
+
 </style> 

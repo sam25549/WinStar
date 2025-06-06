@@ -2,6 +2,7 @@
 import '../styles/global.css'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import Loader from '../components/Loader.astro'
 
 interface Props {
 	title?: string;
@@ -14,10 +15,13 @@ interface Props {
 const { 
 	title = "WinStar", 
 	description = "WinStar - Soluciones Tecnológicas Innovadoras",
-	image = "/images/og-image.jpg",
+	image = "/assets/WinStarLogoWeb.svg",
 	keywords = "tecnología, soluciones, innovación, desarrollo, software",
 	author = "WinStar Team"
 } = Astro.props;
+
+const baseUrl = "https://sam25549.github.io/Portfolio_ProyectoWeb";
+const fullImageUrl = `${baseUrl}${image}`;
 ---
 
 <!doctype html>
@@ -25,7 +29,7 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/assets/faviconWebWinStar.svg" />
 		<meta name="generator" content={Astro.generator} />
 		
 		<!-- Metadatos básicos -->
@@ -35,21 +39,27 @@ const {
 		<meta name="author" content={author} />
 		
 		<!-- Open Graph / Facebook -->
+		<meta property="og:site_name" content="WinStar" />
+		<meta property="og:locale" content="es" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
+		<meta property="og:image" content={fullImageUrl} />
+		<meta property="og:image:type" content="image/svg+xml" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={image} />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:url" content={baseUrl} />
 		
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={image} />
+		<meta name="twitter:image" content={fullImageUrl} />
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	</head>
 	<body>
+		<Loader />
 		<Header />
 		<main>
 			<slot />
@@ -69,7 +79,6 @@ const {
 	main {
 		min-height: calc(100vh - 200px);
 		padding: 2rem;
-		max-width: 1200px;
 		margin: 0 auto;
 	}
 </style>

@@ -54,10 +54,11 @@ const author = "Samantha";
 				realities: WinStar transforms ideas into experiences.
 			</p>
 			<p>Excited for this journey? Come join us!</p>
+			<a href="/about" class="about-btn">About US</a>
 		</div>
 		<div class="intro-images">
-			<img src="/src/img/logo.png" alt="logo" class="hover-img" />
-			<img src="/src/img/logo.png" alt="logo" class="hover-img" />
+			<img src="/src/assets/Profile.png" alt="logo" class="hover-img" />
+			<img src="/src/assets/profileNormsl.png" alt="logo" class="hover-img" />
 		</div>
 	</section>
 
@@ -65,70 +66,133 @@ const author = "Samantha";
 	<section id="services">
 		<h2>Creative Services</h2>
 		<ul class="service-list">
-			<li><h3>FILM PRODUCTION</h3></li>
-			<li><h3>ROBOTICS / INTERACTIVE DESIGN</h3></li>
-			<li><h3>HYBRID MEDIA</h3></li>
+			<li>
+				<div class="relative inline-block group">
+					<h3 class="bitmap-text">FILM PRODUCTION</h3>
+					{["/src/assets/pixels/claqueta.png", "/src/assets/pixels/pelicula.png"].map((src, i) => (
+						<img
+							src={src}
+							alt={`film-${i}`}
+							class={`bitmap-img absolute w-10 md:w-12 transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
+							style={`top: ${Math.random() * 60 - 30}px; left: ${Math.random() * 200 - 100}px; z-index: 5;`}
+						/>
+					))}
+				</div>
+			</li>
+			<li>
+				<div class="relative inline-block group">
+					<h3 class="bitmap-text">ROBOTICS / INTERACTIVE DESIGN</h3>
+					{["/src/assets/pixels/robotics.png", "/src/assets/pixels/interaccion.png"].map((src, i) => (
+						<img
+							src={src}
+							alt={`robotics-${i}`}
+							class={`bitmap-img absolute w-10 md:w-12 transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
+							style={`top: ${Math.random() * 60 - 30}px; left: ${Math.random() * 200 - 100}px; z-index: 5;`}
+						/>
+					))}
+				</div>
+			</li>
+			<li>
+				<div class="relative inline-block group">
+					<h3 class="bitmap-text">HYBRID MEDIA</h3>
+					{["/src/assets/pixels/art.png", "/src/assets/pixels/pintar.png", "/src/assets/pixels/album-de-recortes.png"].map((src, i) => (
+						<img
+							src={src}
+							alt={`media-${i}`}
+							class={`bitmap-img absolute w-10 md:w-12 transition-opacity duration-500 opacity-0 group-hover:opacity-100`}
+							style={`top: ${Math.random() * 60 - 30}px; left: ${Math.random() * 200 - 100}px; z-index: 5;`}
+						/>
+					))}
+				</div>
+			</li>
 		</ul>
-		<a class="projects-btn" href="/src/html/projects.html">View Projects</a>
+		<a class="projects-btn" href="/proyectos">View Projects</a>
 	</section>
 </Layout>
 <style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-		overflow-x: hidden;
-	}
 
 	.logo-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: 100vh;
-		width: 100vw;
+		min-height: 100vh;
+		width: 100%;
 		margin: 0;
-		padding: 0;
+		padding: 2rem;
 		position: relative;
-		left: 0;
-		right: 0;
 		background-color: var(--color-background);
 		color: white;
+		text-align: center;
 	}
 
 	.name-container {
+		position: relative;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
-		position: relative;
-		margin: 0;
-		padding: 0;
+		height: 400px;
 	}
 
 	.logo {
-		position: absolute;
-		align-self: center;
-		width: 60%;
+		width: 100%;
 		max-width: 800px;
 		height: auto;
-		object-fit: cover;
+		object-fit: contain;
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.name {
-		position: relative;
-		z-index: 2;
+		position: absolute;
+		z-index: 1;
 		color: white;
 		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-		font-size: clamp(2rem, 5vw, 4rem);
+		font-size: clamp(4rem, 10vw, 10rem);
+		text-align: center;
+		width: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0.5;
+		pointer-events: none;
 	}
 
 	:global(.char) {
 		color: white !important;
 	}
 
-	@media (max-width: 768px) {
+	@media (min-width: 768px) {
+		.name-container {
+			height: 500px;
+		}
+		
 		.logo {
-			width: 80%;
+			width: 60%;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.logo-container {
+			padding: 1rem;
+		}
+
+		.name-container {
+			height: 300px;
+		}
+
+		.name {
+			font-size: clamp(2.5rem, 8vw, 6rem);
+		}
+
+		.logo {
+			width: 95%;
 		}
 	}
 
@@ -156,5 +220,189 @@ const author = "Samantha";
 #explore-btn:hover {
   background-color: var(--color-pop-hover);
 }
-</style>
 
+.bitmap-text {
+	color: var(--color-text);
+	text-shadow: 2px 2px var(--color-primary-hover);
+	image-rendering: pixelated;
+	transition: color 0.3s ease;
+}
+
+.group:hover .bitmap-text {
+	color: var(--color-primary-hover);
+}
+
+.bitmap-img {
+	pointer-events: none;
+	filter: drop-shadow(1px 1px var(--color-primary-hover));
+	image-rendering: pixelated;
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 2rem;
+	gap: 2rem;
+	background-color: var(--color-background);
+}
+
+.intro-text {
+	max-width: 800px;
+	text-align: center;
+}
+
+.intro-text p {
+	margin-bottom: 1.5rem;
+	font-size: 1.2rem;
+	line-height: 1.6;
+}
+
+.intro-images {
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+}
+
+.hover-img {
+	max-width: 200px;
+	height: auto;
+}
+
+#services {
+	padding: 4rem 2rem;
+	background-color: var(--color-background);
+}
+
+#services h2 {
+	text-align: center;
+	margin-bottom: 3rem;
+	font-size: 2.5rem;
+}
+
+.service-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	align-items: center;
+}
+
+.service-list li {
+	width: 100%;
+	max-width: 800px;
+}
+
+.service-list h3 {
+	font-size: 1.8rem;
+	margin: 0;
+}
+
+.projects-btn {
+	display: block;
+	margin: 4rem auto 0;
+	padding: 1rem 2rem;
+	background-color: var(--color-pop);
+	color: var(--color-text);
+	text-decoration: none;
+	border-radius: 8px;
+	text-align: center;
+	width: fit-content;
+	transition: background-color 0.3s;
+}
+
+.projects-btn:hover {
+	background-color: var(--color-pop-hover);
+}
+
+@media (min-width: 768px) {
+	.intro {
+		flex-direction: row;
+		padding: 6rem 4rem;
+	}
+
+	.intro-text {
+		text-align: left;
+	}
+
+	.intro-text p {
+		font-size: 1.4rem;
+	}
+
+	.hover-img {
+		max-width: 300px;
+	}
+
+	#services {
+		padding: 6rem 4rem;
+	}
+
+	#services h2 {
+		font-size: 3rem;
+	}
+
+	.service-list h3 {
+		font-size: 2.2rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.intro {
+		padding: 3rem 1rem;
+	}
+
+	.intro-text p {
+		font-size: 1rem;
+	}
+
+	.hover-img {
+		max-width: 150px;
+	}
+
+	#services {
+		padding: 3rem 1rem;
+	}
+
+	#services h2 {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.service-list {
+		gap: 2rem;
+	}
+
+	.service-list h3 {
+		font-size: 1.5rem;
+	}
+
+	.projects-btn {
+		margin-top: 3rem;
+		padding: 0.8rem 1.6rem;
+	}
+}
+
+.about-btn {
+	display: inline-block;
+	margin: 1rem auto;
+	padding: 0.7rem 1.5rem;
+	font-family: var(--font-family-body);
+	font-weight: bold;
+	background-color: var(--color-pop);
+	color: var(--color-text);
+	text-decoration: none;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	font-size: 1.1rem;
+	letter-spacing: 1px;
+}
+
+.about-btn:hover {
+	background-color: var(--color-pop-hover);
+}
+</style>

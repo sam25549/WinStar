@@ -1,0 +1,124 @@
+---
+interface Props {
+  page: 'home' | 'about' | 'projects' | 'contact' | 'services';
+  children: any;
+}
+
+const { page, children } = Astro.props;
+
+const gradients = {
+  home: {
+    colors: ['#0f2027', '#203a43', '#2c5364'],
+    name: 'Ocean Blue'
+  },
+  about: {
+    colors: ['#1a2a6c', '#b21f1f', '#fdbb2d'],
+    name: 'Sunset'
+  },
+  projects: {
+    colors: ['#11998e', '#38ef7d', '#2c5364'],
+    name: 'Forest'
+  },
+  contact: {
+    colors: ['#4b6cb7', '#182848', '#2c5364'],
+    name: 'Deep Ocean'
+  },
+  services: {
+    colors: ['#614385', '#516395', '#2c5364'],
+    name: 'Royal'
+  }
+};
+
+const currentGradient = gradients[page];
+---
+
+<div class:list={[
+  'gradient-bg',
+  `gradient-${page}`,
+  'w-full',
+  'transition-all',
+  'duration-500'
+]}>
+  <div class="gradient-overlay"></div>
+  <slot />
+</div>
+
+<style>
+  .gradient-bg {
+    position: relative;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+  }
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .gradient-home {
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+  }
+
+  .gradient-about {
+    background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
+  }
+
+  .gradient-projects {
+    background: linear-gradient(-45deg, #11998e, #38ef7d, #2c5364);
+  }
+
+  .gradient-contact {
+    background: linear-gradient(-45deg, #4b6cb7, #182848, #2c5364);
+  }
+
+  .gradient-services {
+    background: linear-gradient(-45deg, #614385, #516395, #2c5364);
+  }
+
+  @media (min-width: 640px) {
+    .gradient-bg {
+      padding: 1.5rem;
+      background-size: 300% 300%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .gradient-bg {
+      padding: 2rem;
+      background-size: 200% 200%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gradient-bg {
+      padding: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .gradient-bg {
+      padding: 3rem;
+    }
+  }
+</style> 

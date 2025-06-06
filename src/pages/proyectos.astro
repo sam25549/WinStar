@@ -1,11 +1,96 @@
 ---
+import global from "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
+import VideoCarousel from '../components/VideoCarousel.astro';
+import AnimationCarousel from '../components/AnimationCarousel.astro';
 
 const title = "WinStar - Portafolio de Proyectos";
 const description = "Descubre nuestra colección de proyectos innovadores en desarrollo web, aplicaciones móviles y soluciones tecnológicas empresariales. Cada proyecto refleja nuestro compromiso con la excelencia y la innovación.";
 const image = "/src/assets/WinStarLogoWeb.png";
 const keywords = "WinStar, proyectos, portafolio, desarrollo web, aplicaciones móviles, e-commerce, gestión, analytics, React, Flutter, Vue.js";
 const author = "Samantha";
+
+const videos = [
+    {
+        title: "Absence of Fire",
+        src: "/src/assets/Absence of Fire_FINAL2.mp4"
+    },
+    {
+        title: "FINAL_segunda entrega",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748964647/Maidfilm_mmv2bn.mp4"
+    },
+    {
+        title: "Sealed Move",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748963863/Sealed_Move_xjtith.mp4"
+    }
+];
+
+const animationVideos = [
+    {
+        title: "Animación 1",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973273/GlitchFinal02Autorretrato_SamanthaArellano_2_atosl8.mp4"
+    },
+    {
+        title: "Animación 2",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973429/Lampara_Mascaras_SamanthaArellano_Animacion_jj2jcd.mp4"
+    },
+    {
+        title: "Animación 3",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973482/FINAL01CollageCamara_Version02_8M_Animacion_jbhtrr.mp4"
+    },
+    {
+        title: "Animación 4",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973543/02Rotoscopia_nl4wyi.mp4"
+    },
+    {
+        title: "Animación 5",
+        src: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748973058/ProyectoFinal_Final02_TriptoWinaStar_SamanthaArellano_xxwnk2.mp4"
+    }
+];
+
+const galleryImages = [
+    "/src/assets/Actividad5_MarcaPersonalBanner_SamanthaArellano.jpg",
+    "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748962803/animacionSurrealismo_SamanthaArellano_blhf3a.mp4",
+    "/src/assets/ArtNuvou_SamanthaArellano_Version2.pdf",
+    "/src/assets/Hanging Wall Sign MockUp Son y Tierra Logo.jpg",
+    "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748962815/ObsolecenciaProgramada_Animacion_wiee7t.mp4",
+    "/src/assets/Op_Art_SamanthaArellano.png",
+    "/src/assets/PosterFestival_SamanthaArellano02.jpg",
+    "/src/assets/SamanthaArellano_Collage.jpg",
+    "/src/assets/SamanthaArellano_Movimiento.gif",
+    "/src/assets/SamanthaArellano_Retoque.jpg"
+];
+
+const projects = [
+    {
+        id: 1,
+        title: "Film Proyects",
+        description: "Editing of films and videos for personal proyects",
+        tags: ["Abscence of Fire", "Maid Film", "Sealed Move"],
+        linkText: "View Projects",
+        linkHref: "#",
+        previewVideo: "https://res.cloudinary.com/dq1uqbx0a/video/upload/v1748964702/Marianne_Final_Maidfilm_xt3bfk.mp4"
+    },
+    {
+        id: 2,
+        title: "Mixed Media",
+        description: "Mixed Media project of Design and New Media.",
+        image: "/src/assets/Composi.jpg",
+        tags: ["Animations", "Illustrations", "MokUps"],
+        linkText: "View Project",
+        linkHref: "#"
+    },
+    {
+        id: 3,
+        title: "Animations",
+        description: "2D Animations",
+        image: "/src/assets/logo.jpg",
+        tags: ["2D", "Animation", "Motion Graphics"],
+        linkText: "View Animations",
+        linkHref: "#",
+        animationVideos: animationVideos
+    }
+];
 ---
 
 <Layout 
@@ -15,113 +100,597 @@ const author = "Samantha";
     keywords={keywords}
     author={author}
 >
-    <h1>Nuestros Proyectos</h1>
-    <div class="projects-grid">
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://via.placeholder.com/400x300" alt="Proyecto 1">
-            </div>
-            <div class="project-content">
-                <h2>E-commerce Platform</h2>
-                <p>Desarrollo de una plataforma de comercio electrónico con funcionalidades avanzadas y diseño responsivo.</p>
-                <div class="project-tags">
-                    <span>React</span>
-                    <span>Node.js</span>
-                    <span>MongoDB</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://via.placeholder.com/400x300" alt="Proyecto 2">
-            </div>
-            <div class="project-content">
-                <h2>App de Gestión</h2>
-                <p>Aplicación móvil para la gestión de recursos y seguimiento de proyectos en tiempo real.</p>
-                <div class="project-tags">
-                    <span>Flutter</span>
-                    <span>Firebase</span>
-                    <span>Dart</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="https://via.placeholder.com/400x300" alt="Proyecto 3">
-            </div>
-            <div class="project-content">
-                <h2>Dashboard Analytics</h2>
-                <p>Panel de control interactivo para visualización y análisis de datos empresariales.</p>
-                <div class="project-tags">
-                    <span>Vue.js</span>
-                    <span>D3.js</span>
-                    <span>Python</span>
-                </div>
-            </div>
+    <div class="logo-container">
+        <div class="name-container">
+            <h1 class="stroke-text">PROJECTS.</h1>
         </div>
     </div>
+    <div class="header-line"></div>
+
+    {projects.map((project, index) => (
+        <section class={`project-section ${index % 3 === 0 ? 'left-aligned' : 'right-aligned'}`}>
+            <div class="project-content">
+                <h2>{project.title}</h2>
+                <p>{project.description}</p>
+                <div class="project-tags">
+                    {project.tags.map(tag => <span>{tag}</span>)}
+                </div>
+                {index === 0 && (
+                    <>
+                        <button class="project-link" onclick="window.openVideoCarousel()">{project.linkText}</button>
+                        <VideoCarousel videos={videos} />
+                    </>
+                )}
+                {index === 1 && (
+                    <>
+                        <button class="project-link" onclick="window.openGallery()">{project.linkText}</button>
+                        <div class="gallery-container">
+                            <button class="close-button" onclick="window.closeGallery()"></button>
+                            {galleryImages.map((image, imgIndex) => (
+                                <div class="gallery-item" data-index={imgIndex}>
+                                    {image.endsWith('.mp4') ? (
+                                        <video controls>
+                                            <source src={image} type="video/mp4">
+                                            Tu navegador no soporta el elemento de video.
+                                        </video>
+                                    ) : image.endsWith('.gif') ? (
+                                        <img src={image} alt={`Gallery image ${imgIndex + 1}`}>
+                                    ) : image.endsWith('.pdf') ? (
+                                        <iframe src={image} width="100%" height="100%"></iframe>
+                                    ) : (
+                                        <img src={image} alt={`Gallery image ${imgIndex + 1}`}>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
+                {index === 2 && project.animationVideos && (
+                    <>
+                        <button class="project-link" onclick="window.openAnimationCarousel()">{project.linkText}</button>
+                        <AnimationCarousel videos={project.animationVideos} />
+                        <div class="animation-carousel-container">
+                            <button class="close-button" onclick="window.closeAnimationCarousel()"></button>
+                            {project.animationVideos.map((video, videoIndex) => (
+                                <div class="animation-item" data-index={videoIndex}>
+                                    <video controls>
+                                        <source src={video.src} type="video/mp4">
+                                        Tu navegador no soporta el elemento de video.
+                                    </video>
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </div>
+            {index === 0 && project.previewVideo ? (
+                <div class="project-preview">
+                    <video controls class="preview-video">
+                        <source src={project.previewVideo} type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+            ) : project.image && (
+                <div class="project-image">
+                    {project.image.endsWith('.pdf') ? (
+                        <iframe 
+                            src={`${project.image}#toolbar=0&navpanes=0&scrollbar=0`} 
+                            width="100%" 
+                            height="500px"
+                            scrolling="no"
+                        ></iframe>
+                    ) : (
+                        <img src={project.image} alt={`Imagen de ${project.title}`}>
+                    )}
+                </div>
+            )}
+        </section>
+    ))}
 </Layout>
 
 <style>
-    h1 {
-        text-align: center;
-        margin-bottom: 2rem;
-        color: #333;
-    }
-
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        padding: 1rem;
-    }
-
-    .project-card {
-        background: white;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .project-image img {
+    .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
         width: 100%;
-        height: 200px;
-        object-fit: cover;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 0;
+        right: 0;
+        background: linear-gradient(45deg, 
+            rgba(var(--color-text-muted-rgb), 0.6), 
+            rgba(var(--color-primary-hover-rgb), 0.6), 
+            rgba(var(--color-primary-rgb), 0.6));
+        background-size: 400% 400%;
+        animation: gradientBG 8s ease infinite;
+        color: white;
+    }
+
+    @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .name-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .stroke-text {
+        font-size: clamp(2.5rem, 8vw, 6rem);
+        font-weight: 900;
+        -webkit-text-stroke: clamp(1px, 1vw, 3px) var(--color-text);
+        color: transparent;
+        margin: 0;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-family: var(--font-family-header);
+    }
+
+    .projects-container {
+        width: 95%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .project-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4rem;
+        padding: clamp(1rem, 3vw, 2rem);
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex-wrap: wrap;
+        gap: clamp(1rem, 3vw, 2rem);
+    }
+
+    .project-section:last-child {
+        margin-bottom: 0;
     }
 
     .project-content {
-        padding: 1.5rem;
+        flex: 1;
+        padding: clamp(1rem, 3vw, 1.5rem);
+        min-width: 280px;
+    }
+
+    .project-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: clamp(0.5rem, 2vw, 1rem);
+        min-width: 280px;
+        max-width: 600px;
+        overflow: hidden;
+    }
+
+    .project-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .project-image iframe {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        height: 400px;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .left-aligned .project-content {
+        order: 1;
+    }
+
+    .left-aligned .project-image {
+        order: 2;
+    }
+
+    .right-aligned .project-content {
+        order: 2;
+    }
+
+    .right-aligned .project-image {
+        order: 1;
     }
 
     .project-content h2 {
-        color: #007bff;
-        margin-bottom: 0.5rem;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 0.75rem;
     }
 
     .project-content p {
-        color: #666;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
         line-height: 1.6;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .project-tags {
         display: flex;
-        gap: 0.5rem;
+        gap: clamp(0.5rem, 1.5vw, 0.75rem);
         flex-wrap: wrap;
+        margin-bottom: 1.5rem;
     }
 
     .project-tags span {
         background: #e9ecef;
         color: #495057;
-        padding: 0.25rem 0.75rem;
-        border-radius: 15px;
-        font-size: 0.875rem;
+        padding: clamp(0.3rem, 1vw, 0.4rem) clamp(0.8rem, 2vw, 1rem);
+        border-radius: 20px;
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        font-weight: bold;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-</style> 
+
+    .project-tags span:hover {
+        background: var(--color-pop);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-tags span:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-link {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1.5rem, 3vw, 2rem);
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        transition: background-color 0.3s ease;
+    }
+
+    .project-link:hover {
+        background-color: #0056b3;
+    }
+
+    /* Media Queries Mejoradas */
+    @media (max-width: 1024px) {
+        .project-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .project-content,
+        .project-image {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .project-tags {
+            justify-content: center;
+        }
+
+        .project-link {
+            margin: 0 auto;
+            display: block;
+            width: fit-content;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo-container {
+            height: 60vh;
+        }
+
+        .header-line {
+            margin: 1rem 0 2rem 0;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+        }
+
+        .gallery-container,
+        .animation-carousel-container {
+            padding: 1rem;
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-item,
+        .animation-item {
+            height: 200px;
+        }
+
+        .close-button {
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+        }
+
+        .close-button::before,
+        .close-button::after {
+            width: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo-container {
+            height: 50vh;
+        }
+
+        .project-section {
+            padding: 1rem;
+        }
+
+        .project-content {
+            padding: 0.5rem;
+        }
+
+        .project-image {
+            padding: 0.5rem;
+        }
+
+        .gallery-item,
+        .animation-item {
+            height: 180px;
+        }
+    }
+
+    /* Ajustes para dispositivos muy pequeños */
+    @media (max-width: 320px) {
+        .logo-container {
+            height: 40vh;
+        }
+
+        .stroke-text {
+            letter-spacing: 0.1em;
+        }
+
+        .project-tags span {
+            padding: 0.3rem 0.6rem;
+        }
+    }
+
+    .header-line {
+        width: 100%;
+        height: 2px;
+        background: var(--color-text);
+        margin: 2rem 0 4rem 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .video-section {
+        margin-bottom: 4rem;
+        padding: 2rem;
+        background-color: var(--color-background);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-section h2 {
+        color: var(--color-pop);
+        margin-bottom: 1.5rem;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .video-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .project-video {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-preview {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .preview-video {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-container,
+    .animation-carousel-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+        overflow-y: auto;
+    }
+
+    .close-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+
+    .close-button::before,
+    .close-button::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: white;
+        transform-origin: center;
+    }
+
+    .close-button::before {
+        transform: rotate(45deg);
+    }
+
+    .close-button::after {
+        transform: rotate(-45deg);
+    }
+
+    .close-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+
+    .gallery-container.active {
+        display: grid;
+    }
+
+    .gallery-item {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        background: #000;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+
+    .gallery-item img,
+    .gallery-item video,
+    .gallery-item iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .animation-carousel-container.active {
+        display: grid;
+    }
+
+    .animation-item {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        background: #000;
+    }
+
+    .animation-item:hover {
+        transform: scale(1.05);
+    }
+
+    .animation-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+</style>
+
+<script>
+    // Función para abrir la galería
+    (window as any).openGallery = () => {
+        const gallery = document.querySelector('.gallery-container');
+        if (gallery) {
+            gallery.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    // Función para cerrar la galería
+    (window as any).closeGallery = () => {
+        const gallery = document.querySelector('.gallery-container');
+        if (gallery) {
+            gallery.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    // Función para abrir el carrusel de animaciones
+    (window as any).openAnimationCarousel = () => {
+        const carousel = document.querySelector('.animation-carousel-container');
+        if (carousel) {
+            carousel.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    // Función para cerrar el carrusel de animaciones
+    (window as any).closeAnimationCarousel = () => {
+        const carousel = document.querySelector('.animation-carousel-container');
+        if (carousel) {
+            carousel.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    // Cerrar galería con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            (window as any).closeGallery();
+            (window as any).closeAnimationCarousel();
+        }
+    });
+
+    // Cerrar galería al hacer clic fuera de las imágenes
+    document.addEventListener('click', (e) => {
+        const gallery = document.querySelector('.gallery-container');
+        const carousel = document.querySelector('.animation-carousel-container');
+        
+        if (gallery?.classList.contains('active') && e.target === gallery) {
+            (window as any).closeGallery();
+        }
+        
+        if (carousel?.classList.contains('active') && e.target === carousel) {
+            (window as any).closeAnimationCarousel();
+        }
+    });
+</script> 
