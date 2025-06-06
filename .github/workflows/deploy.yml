@@ -29,14 +29,16 @@ jobs:
         run: npm ci
       - name: Build with Astro
         run: npm run build
-      - name: Create docs directory
-        run: mkdir -p ./docs
+      - name: Verify build output
+        run: |
+          ls -la ./dist
       - name: Create .nojekyll file
-        run: touch ./docs/.nojekyll
+        run: |
+          touch ./dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
+          path: ./dist
 
   deploy:
     environment:
