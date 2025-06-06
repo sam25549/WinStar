@@ -29,6 +29,8 @@ jobs:
         run: npm ci
       - name: Build with Astro
         run: npm run build
+      - name: Create docs directory
+        run: mkdir -p ./docs
       - name: Create .nojekyll file
         run: touch ./docs/.nojekyll
       - name: Upload artifact
