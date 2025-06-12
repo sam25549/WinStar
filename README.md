@@ -1,8 +1,6 @@
 
 # WinStar – Evaluación Final
 
-Este documento contiene la retroalimentación detallada sobre el proyecto **WinStar**, evaluado en diferentes criterios técnicos y creativos.
-
 ---
 
 ## [+15] Metadata, Markup y Accesibilidad
