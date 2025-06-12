@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://sam25549.github.io/WinStar",
-  base: "/WinStar",
+  base: "/",
   trailingSlash: "never",
   outDir: "docs",
   vite: {
