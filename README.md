@@ -1,93 +1,98 @@
+# WinStar
 
-# WinStar – Evaluación Final
+## Feedback General
 
----
-
-## [+15] Metadata, Markup y Accesibilidad
-
-- Excelente estructura semántica en el HTML, uso correcto de metadata, favicon y etiquetas accesibles.
-- Buen entendimiento del documento y sus componentes.
-- Observación: en el apartado de contacto faltó un link funcional para el correo electrónico. Se sugiere usar:
-
-```html
-mailto:info@winstar.com
-```
+### [+15] Metadata, Markup y Accesibilidad
+Tu markup, metadata, favicon... tú muy bien en la semántica y estructura de documentos, lo tienes súper bien entendido.  
+Aunque se te fue un link en tu contacto, un mailto a tu mail personal hubiera estado perfect:  
+`mailto:info@winstar.com`
 
 ---
 
-## [+13] Funcionalidad / Interactividad
+### [+13] Funcionalidad / Interactividad
 
-- Algunas imágenes están extremadamente sobredimensionadas:
-  - `Profile.png` (3932x3120px) usada como ícono de 75x60.
-  - `profileNormsl.png` supera los 6MB.
-- Recomendación: redimensionar y comprimir imágenes para mejorar carga y rendimiento.
-- En mobile, el sitio genera scroll horizontal excesivo (`overflow-x`); se deben revisar los contenedores.
-- El menú presenta errores en desktop: íconos de “hamburguesa” y “cerrar” aparecen al mismo tiempo.
-  - Sugerencia: mantener navegación siempre visible en desktop; usar menú hamburguesa solo en mobile.
-- El scroll en pantallas grandes no funciona correctamente si no se genera contenido suficiente: esto detiene la navegación. Se sugiere forzar `min-height` o incluir un indicador visual para scroll.
+**IMAGEN:**  
+Tienes imágenes rebasadas en peso y tamaño por mucho, ej:  
+- `./src/assets/Profile.png` es de casi 4000px (3932x3120px), una imagen enorme para usarla como un ícono de 75x60 en desktop.  
+- Otro caso: `assets/profileNormsl.png`, de dimensiones similares pero pesa más de 6.0MB.  
 
----
+**OPTIMIZACIÓN:**  
+Pudiste haber usado un tamaño máximo de 1920x1080 (ya sobrado) y optimizado la imagen, reduciendo la carga a menos de 1MB. Este tipo de archivos grandes genera conflictos visuales en conexiones lentas o móviles.
 
-## [+12] Diseño y Estilo
+**SCROLL:**  
+En mobile se genera un scroll gigante en el eje `x`, revisa los tamaños de los contenedores y prevén esto con `overflow-x`.
 
-- El hover sobre servicios es muy invasivo, cubre otros elementos y no aporta valor visual.
-  - Se sugiere usar un diseño más discreto o integrar las imágenes como acompañamiento del texto.
-- Inconsistencias visuales:
-  - Algunos elementos tienen bordes redondeados, otros no.
-  - El footer muestra dos veces el nombre *WinStar* con estilos distintos (Serif + Script vs Sans-Serif).
-- Buena animación de la “W” animada, pero pudo aprovecharse mejor como recurso gráfico único.
-  - Evitar redundancias: la “W” animada podría haber reemplazado logotipos secundarios.
-- Recomendación visual: ver el documental _Rams – Principles of Good Design_ (Braun)  
-  https://archive.org/details/rams.-principles.of.-good.-design
+**MENÚ:**  
+En desktop el menú muestra empalmado el ícono de hamburguesa y el de cerrar. Incluso en mobile este menú pudo haber vivido siempre en el header, ya que son sólo 3 secciones.  
+Recomendación: links visibles en desktop, menú hamburguesa en mobile.
 
 ---
 
-## [+12] Creatividad
+### [+12] Diseño y Estilo
 
-- Hay una propuesta clara, con intención estética y buen uso de recursos como la animación tipográfica.
-- Algunas decisiones creativas (como la W animada) son acertadas, pero no se integran del todo con el resto del diseño.
-- Faltó consistencia visual entre secciones y un mejor aprovechamiento del potencial creativo de las piezas gráficas.
-  - Las galerías y proyectos tienen obras muy buenas, pero la interfaz no potencia su impacto visual.
-  - Sugerencia: uso de lightbox, zoom al clic, o navegación horizontal.
+**HOME:**  
+Los servicios creativos tienen un hover muy invasivo y no aportan mucho. Es preferible usar tamaños más pequeños que acompañen al texto.  
+Al hacer hover, se pierde la imagen por cubrir los ítems.
 
----
+**HOME MOBILE:**  
+Se desbordan elementos por el scroll.
 
-## [+13] Responsive
+**COHESIÓN:**  
+El diseño pierde cohesión entre elementos con bordes redondeados y otros sin redondear, que comparten espacio.  
+En el 'about', repites dos veces el nombre 'Winstar', uno con animación y otro en tipografía sans-serif.  
+Recomendación: usar sólo la "W" de Winstar como ícono en header o footer, como lo hiciste en la animación del 'about', que quedó muy bien.
 
-- La experiencia responsive se ve afectada por el exceso de scroll vertical y horizontal.
-- Las secciones en viewport completo dificultan la navegación, sobre todo en mobile.
-  - Sugerencia: incluir indicadores visuales (flechas, hints) o reducir el tamaño de los contenedores para facilitar el flujo.
-- En mobile, elementos se desbordan y dificultan la lectura y la navegación.
+**Referencia:**  
+Documental recomendado: *Rams. Principles of Good Design* (Diseñador de Braun)  
+https://archive.org/details/rams.-principles.of.-good.-design
 
----
-
-## [+13] Contenido
-
-- El contenido tiene una base sólida y coherente.
-- La sección de proyectos pudo aprovechar más su valor visual con una presentación dinámica.
-  - Galerías podrían adaptarse a proporción del contenido (portrait vs. landscape).
-- Faltan títulos descriptivos y alts informativos:
-  - Mejorar nombres como “Animación 2” por:
-    - **Título**: *Lights*  
-    - **Descripción**: *Ejercicios de luces y físicas con After Effects*
-- Arquitectura de información correcta pero demasiado condensada en una sola página.
-- Optimización de imágenes para mobile sigue pendiente.
+**PROYECTOS:**  
+Si los indicadores de categoría (ej: 2d, animation, motion) no hacen nada al clic, evita el hover. Usa estilo de 'label', no de botón.  
+Hubiera sido genial poder hacer zoom a las piezas. Por ejemplo, amé el op-art de "Son y Tierra".  
+Como último recurso, podrías hacer que las imágenes se abran en otra pestaña.
 
 ---
 
-## [+10] Calidad del Código
+### [+13] Responsive
 
-- Código bien estructurado, con nombres claros y buena indentación.
-- Buen manejo de commits y organización general.
-- Se nota curiosidad técnica y un enfoque ingenieril sólido.
-- Muy buenas bases para construir proyectos funcionales a futuro.
+La experiencia responsive se ve afectada por los scrolls verticales grandes.  
+Las secciones principales ocupan todo el alto del viewport y se vuelve confuso cómo navegar.  
+Recomendación: usar un indicador de scroll (flecha o instrucción).  
+En mobile, podrías reducir el tamaño del contenedor inicial para mostrar contenido adicional desde el inicio.
 
 ---
 
-## Evaluación Global
+### [+13] Contenido
 
-**Total: 88/100 puntos**
+Tienes buen contenido.  
+En la parte de proyectos pudo haber habido una presentación más dinámica, especialmente considerando la calidad del material.
 
-- Gran potencial creativo y técnico.
-- Buenas ideas que con un poco más de refinamiento podrían lograr una experiencia muy sólida.
-- Áreas clave de mejora: performance visual, cohesión estética, accesibilidad mobile y experiencia de usuario.
+**Galerías:**  
+Distribuir contenidos según su relación de aspecto (portrait para videos, landscape para imágenes).
+
+**Títulos y Descripciones:**  
+Agregar títulos y descripciones contextuales a las piezas.  
+Ejemplo:  
+- Antes: "Animación 2"  
+- Mejor:  
+  Título: Lights  
+  Descripción: Ejercicio de luces y físicas con After Effects
+
+**Arquitectura de información:**  
+Está bien, pero muy condensada para una sola página. No tan ágil en mobile.  
+Muchas imágenes no están preparadas para mobile: faltó redimensionar, seleccionar formato y optimizar.
+
+---
+
+### [+12] Creatividad
+
+Tu propuesta tiene identidad clara, coherencia de marca y elementos memorables como la W animada.  
+Sin embargo, faltó una exploración más profunda en el diseño de interacción, narrativa del sitio y dinamismo de presentación en las piezas.
+
+---
+
+### [+10] Calidad del Código
+
+Tu código está muy bien: buena estructura, nombres, indentación, commits.  
+Tienes mucho talento. Tu curiosidad por entender cómo se construyen y funcionan las cosas te hace tener una base sólida.  
+Tienes una mente ingenieril, te auguro un gran futuro construyendo cosas interesantes.
